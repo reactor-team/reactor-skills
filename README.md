@@ -4,7 +4,7 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ## About
 
-* [`skills/helios-prompt-engineering`](./skills/helios-prompts) - Craft effective prompts for Helios video generation
+* [`skills/helios-prompts`](./skills/helios-prompts) - Craft effective prompts for Helios video generation
 * More coming soon as we approach public beta
 
 ## Install

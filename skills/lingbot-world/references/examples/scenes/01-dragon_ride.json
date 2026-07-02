@@ -1,0 +1,59 @@
+{
+  "id": "dragon_ride",
+  "name": "Dragon Flying",
+  "description": "First-person flight — key 1 = portal, key 2 = fire breath",
+  "entrance": {
+    "image": {
+      "label": "Dragon flying",
+      "src": "/lingbot-world-fast-v1/dragon_ride.jpg"
+    },
+    "state": "jungle_castle_ride"
+  },
+  "scene": {
+    "states": {
+      "jungle_castle_ride": {
+        "base": "This is a third-person-view video of a colossal dragon — its neck a column of dense obsidian-black scales rippling with muscle, its enormous bat-like wings veined with pulsing crimson, leading edges sharp and dark. Ahead, a towering ancient castle of crumbling stone spires and moss-covered battlements rises above dense jungle canopy, gothic arches half-swallowed by creeping vines. A vast primordial forest stretches in every direction, pale mist drifting between trunks, dappled golden sunlight filtering through humid air, winding river gorges far below.",
+        "camera": {
+          "static": "Strict centred third-person rear view: the dragon is locked at the exact centre of the frame. The camera tracks the dragon from above and behind and never rotates independently of it; whenever the camera changes angle, the dragon's heading turns with it so the rear-view framing is always preserved.",
+          "dynamic": "Strict centred third-person rear view: the dragon is locked at the exact centre of the frame, the camera tracking it from above and behind as it drives forward through the sky. The camera never rotates independently of the dragon; whenever the camera changes angle, the dragon's heading turns with it so the rear-view framing is preserved at all times."
+        },
+        "movement": {
+          "static": "The dragon hovers pinned to a single fixed point in mid-air, beating its enormous bat-like wings in steady rhythmic strokes purely to hold position — wings sweeping high on the upstroke until the membranes nearly meet overhead, then driving downward in powerful arcs that push the air below. Despite the wing-beats, the dragon does NOT translate through the world: NOT forward, NOT up, NOT down, and crucially NEVER drifts backward — it must not slide, glide, or recede away from the camera under any circumstance. Its body stays at exactly the same point in space at constant altitude, heading unchanged, apparent size and distance held constant, neck arched gently forward in the calm air.",
+          "dynamic": "The dragon's wings beat the air with powerful rhythmic strokes — sweeping high on the upstroke until the membranes nearly meet overhead, then driving downward in a thunderous arc. The neck stretches forward into the wind and air streams past the leading edges of the wings as the dragon drives forward through the sky."
+        }
+      }
+    },
+    "events": [
+      {
+        "name": "Portal",
+        "kind": "overlay",
+        "from": ["jungle_castle_ride"],
+        "base": "",
+        "camera": {
+          "static": "A third-person rear view from above and behind a colossal dragon, the camera locked at a fixed offset that keeps the dragon centred at constant apparent size in frame",
+          "dynamic": "A third-person rear view from above and behind a colossal dragon, the camera locked at a fixed offset that keeps the dragon centred at constant apparent size in frame"
+        },
+        "movement": {
+          "static": "",
+          "dynamic": ""
+        },
+        "detail": "as a massive burst of brilliant fireworks erupts across the entire sky — a dazzling explosion of red, gold, violet, and emerald green light blooming in spectacular fashion, the radiant blast filling the screen completely with cascading sparks and shimmering trails. At the peak of the explosion, the fireworks coalesce into a luminous tear in the fabric of reality, a glowing fissure splitting open through the heart of the brilliance, crackling with chromatic energy along its jagged edges. As the fireworks disperse and the sparks fade away in spiraling ribbons of smoke, the dragon emerges through the closing rift to find itself before a sprawling expanse of ancient castles — towering stone spires, weathered battlements, and gothic arches stretching across the horizon, their silhouettes rising majestically against a new sky. The colorful afterglow of the dimensional passage still dances across the dragon's enormous outstretched wings and glints off its obsidian-black armored scales, faint embers from the dissipating rift lingering in the air around the beast as it soars toward the castle landscape ahead."
+      },
+      {
+        "name": "Fire breath",
+        "kind": "overlay",
+        "from": ["jungle_castle_ride"],
+        "base": "",
+        "camera": {
+          "static": "A high-angle, cinematic wide-angle aerial shot from behind and slightly above the dragon, looking forward over the entire creature. This comprehensive perspective must keep the full extent of the dragon's body and both massive, fully spread wings continuously visible within the frame. The camera is locked at this fixed offset for the duration of the shot: it never tilts up to follow the head, never banks to a side or beam-on angle, never drifts forward into the dragon nor recedes backward away from it, and never crops or minimizes the dragon's silhouette within the frame.",
+          "dynamic": "A high-angle, cinematic wide-angle aerial shot from behind and slightly above the dragon, looking forward over the entire creature. This comprehensive perspective must keep the full extent of the dragon's body and both massive, fully spread wings continuously visible within the frame. The camera is locked at this fixed offset for the duration of the shot: it never tilts up to follow the head, never banks to a side or beam-on angle, never drifts forward into the dragon nor recedes backward away from it, and never crops or minimizes the dragon's silhouette within the frame."
+        },
+        "movement": {
+          "static": "Further ahead, the dragon's head is clearly defined and held level with its body, neck stretched forward, jaws wide open and aimed forward at the horizon — the head is NOT tilted up toward the sky — positioned within the middle distance, not fully filling the frame. From this open mouth, a tightly collimated cylindrical column of brilliant fire shoots horizontally forward along the dragon's flight axis, parallel to the ground far below — NOT angled upward into the sky — projecting straight into the far distance like a focused beam, a narrow cohesive pillar of flame that maintains a consistent diameter along its entire length, NOT a fan, cone, or diffuse spray. The fire column is white-hot at the core with blazing orange and gold edges. The dragon's obsidian-black scales glow molten-red along its neck and back from the sheer radiance. Sparks and glowing embers cascade outward. A dense forest far below is bathed in intense flickering firelight.",
+          "dynamic": "Further ahead, the dragon's head is clearly defined and held level with its body, neck stretched forward, jaws wide open and aimed forward at the horizon — the head is NOT tilted up toward the sky — positioned within the middle distance, not fully filling the frame. From this open mouth, a tightly collimated cylindrical column of brilliant fire shoots horizontally forward along the dragon's flight axis, parallel to the ground far below — NOT angled upward into the sky — projecting straight into the far distance like a focused beam, a narrow cohesive pillar of flame that maintains a consistent diameter along its entire length, NOT a fan, cone, or diffuse spray. The fire column is white-hot at the core with blazing orange and gold edges. The dragon's obsidian-black scales glow molten-red along its neck and back from the sheer radiance. Sparks and glowing embers cascade outward. A dense forest far below is bathed in intense flickering firelight."
+        },
+        "detail": "Crucially, the lens should never zoom in on the head; the camera must maintain this wide environmental POV to ensure the dragon's entire form, including wings and body, is never cropped or minimized, even during the action."
+      }
+    ]
+  }
+}

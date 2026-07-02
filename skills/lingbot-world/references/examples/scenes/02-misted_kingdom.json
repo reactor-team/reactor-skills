@@ -1,0 +1,41 @@
+{
+  "id": "misted_kingdom",
+  "name": "Misted Kingdom Ride",
+  "description": "Fantasy horseback — key 1 = royal procession, key 2 = auroral night",
+  "entrance": {
+    "image": {
+      "label": "Misted kingdom",
+      "src": "/lingbot-world-fast-v1/misted_kingdom.png"
+    },
+    "state": "valley_meadow"
+  },
+  "scene": {
+    "states": {
+      "valley_meadow": {
+        "base": "This is a third-person-view video of a sword-slung rider in white tunic and dark sash, hair tied in a high topknot, seated firmly on a brown horse, in an open valley of wildflower meadows. Violet lupines and crimson poppies stretch between weathered boulders; a hamlet of half-timbered cottages, stone watchtowers, and a moss-eaten ruined portal arch stands in the misted middle distance. Far ahead on a craggy peak, a many-spired castle with crimson pennants stands against a vast ringed gas giant and a pale crescent moon in the peach-tinted twilight sky. Painterly fantasy storybook atmosphere.",
+        "camera": {
+          "static": "The rider and horse are locked at the exact centre of the frame at constant size and distance. Neither the pair nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary pair only while held.",
+          "dynamic": "Strict centred third-person over-the-shoulder rear view: the rider and horse are locked at the exact centre of the frame. The camera tracks the pair from behind and slightly above the rider as they travel forward and never rotates around them; arrow-key look-input turns the horse's heading instead, preserving the over-the-shoulder framing."
+        },
+        "movement": {
+          "static": "Rider and horse are completely still and motionless, the horse's long braided tail resting across the wildflowers and its hooves planted in the still valley mist, the rider's tunic and sash hanging undisturbed in the calm air.",
+          "dynamic": "The horse moves forward at a steady walk through the wildflower meadow, hooves padding through lupines and poppies and stirring the valley mist into thin curling wisps, its long braided tail swaying behind. The rider's tunic and sash shift gently with the horse's motion, and the topknot bobs with each step."
+        }
+      }
+    },
+    "events": [
+      {
+        "name": "Royal procession",
+        "kind": "overlay",
+        "from": ["valley_meadow"],
+        "detail": "Across the meadow ahead in the misted middle distance, a long column of mounted knights in burnished plate armor stands in twos toward the castle, lances tipped with crimson pennants matching the spires far above, polished helms catching the peach light of the gas giant overhead. Torchbearers further back hold thin amber smoke in the valley mist."
+      },
+      {
+        "name": "Auroral night",
+        "kind": "overlay",
+        "from": ["valley_meadow"],
+        "detail": "The rider's tunic is washed pale green-cyan and the sash deepened to indigo under deep night air. Wildflowers darken to wine and cobalt, weathered boulders catching cold starlight; the hamlet's cottages and watchtowers show warm yellow window-glows. Above the craggy peak, immense ribbons of green and magenta aurora hang across the night sky past the ringed gas giant and crescent moon, their cold light silvering the castle's spires and cooling the crimson pennants to dusky rose."
+      }
+    ]
+  }
+}

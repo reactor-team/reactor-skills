@@ -1,0 +1,44 @@
+{
+  "id": "spring_valley",
+  "name": "Spring Valley Walk",
+  "description": "Golden retriever stroll — key 1 = sit down, key 2 = starlit night",
+  "entrance": {
+    "image": {
+      "label": "Spring valley",
+      "src": "/lingbot-world-fast-v1/spring_valley.png"
+    },
+    "state": "meadow_encampment"
+  },
+  "scene": {
+    "states": {
+      "meadow_encampment": {
+        "base": "This is a third-person-view video of a golden retriever in a sun-warmed meadow beside a cozy encampment. To the left lies a patterned floral rug on the grass, to the right a weathered stone bench bearing an open book and a small potted seedling, a cardboard box of chew bones at its corner, a lamppost and a hand-lettered wooden signpost flanking the encampment. Wildflower fields roll down toward the open valley ahead, where pink cherry blossoms in full bloom stand among rounded green oaks. Soft layered hills rest against a pale blue spring sky scattered with cottony clouds. Tender hand-painted watercolor storybook atmosphere.",
+        "camera": {
+          "static": "The retriever is locked at the exact centre of the frame at constant size and distance. Neither the retriever nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary dog only while held.",
+          "dynamic": "Strict centred third-person over-the-shoulder rear view: the retriever is locked at the exact centre of the frame. The camera tracks the retriever from behind as it travels forward and never rotates around the dog; arrow-key look-input turns the retriever's heading instead, preserving the over-the-shoulder framing."
+        },
+        "movement": {
+          "static": "The retriever stands upright on all four paws, hindquarters lifted clear of the ground, head held level, tail relaxed behind, its long honey-colored fur held still in the calm air.",
+          "dynamic": "The retriever trots forward through the warm meadow grass at an easy pace, paws padding through wildflowers, ears bouncing lightly with each step, tail swinging in a relaxed wag, tongue lolling out the side of its mouth."
+        }
+      }
+    },
+    "events": [
+      {
+        "name": "Sit down",
+        "kind": "overlay",
+        "from": ["meadow_encampment"],
+        "detail": {
+          "static": "The retriever lowers itself into an upright sit on the warm grass, hindquarters resting on the ground, front legs straight and planted firmly in the meadow, head held attentively, tail resting neatly behind in the grass.",
+          "dynamic": "The retriever skids to a halt in the meadow grass, hindquarters dropping into a sit and front paws planting firmly among wildflowers, head turning attentively, tail still settling behind it as the bent stems from its run spring slowly back upright."
+        }
+      },
+      {
+        "name": "Starlit night",
+        "kind": "overlay",
+        "from": ["meadow_encampment"],
+        "detail": "The meadow is now pale under cool moonlight, the dog's honey-colored fur silvered with the night air. The patterned floral rug darkens to russet and ink, the stone bench bearing the open book silhouetted in soft blue, the cardboard box tucked into long black shadows. The lamppost beside the bench glows steadily alive, casting a warm yellow halo across the bench's stone, the open book's pages, and the dog's collar buckle. Beyond, fireflies hang in slow constellations between cherry-blossom trees, far hills lie blackened beneath a vast star-strewn sky and a bright full moon."
+      }
+    ]
+  }
+}

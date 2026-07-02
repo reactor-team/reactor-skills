@@ -1,0 +1,41 @@
+{
+  "id": "citadel_approach",
+  "name": "Citadel Approach",
+  "description": "Desert canyon drive — key 1 = camel caravan, key 2 = solar eclipse",
+  "entrance": {
+    "image": {
+      "label": "Citadel approach",
+      "src": "/lingbot-world-fast-v1/citadel_approach.png"
+    },
+    "state": "canyon_drive"
+  },
+  "scene": {
+    "states": {
+      "canyon_drive": {
+        "base": "This is a third-person-view video of a battered grey-green vintage Defender 4x4 deep in a coral-lit desert canyon. Prickly pear cacti tipped with magenta blooms, scattered red poppies, and weather-pitted boulders dot the open desert floor; smooth ochre dunes sweep up toward towering sandstone mesas that wall the valley on the left. Ahead, a cliff-built sandstone citadel of white-washed houses, crenellated battlements, and slender minarets stands against a hazy peach-orange sunset sky. Warm painterly desert storybook atmosphere.",
+        "camera": {
+          "static": "The Defender stays perfectly centered in the camera's view with a fixed orientation, and its apparent size and distance from the camera remain constant at all times. It never moves or shifts in place.",
+          "dynamic": "Strict centred third-person rear view: the Defender is locked at the exact centre of the frame at all times — horizontally centred, vertically centred, and the camera sits on a fixed offset directly behind the vehicle's rear axle (zero lateral offset, zero orbit angle). The camera tracks the Defender from directly behind as it travels forward and never rotates, orbits, or pans around it under any input. Arrow-key look-input turns the Defender's heading instead, so the rear-view framing — camera-behind-centre — is preserved frame-by-frame. "
+        },
+        "movement": {
+          "static": "The Defender is completely still and motionless, parked on the open desert sand, mud-streaked rear hatch and weathered tail-lights static, no dust or movement around its tires.",
+          "dynamic": "The Defender rolls forward across the open desert sand, plumes of pale golden dust kicking up from its tires and trailing behind the rear hatch, the suspension flexing softly as it crests the dunes, faint heat shimmer rising from the tailpipe."
+        }
+      }
+    },
+    "events": [
+      {
+        "name": "Camel caravan",
+        "kind": "overlay",
+        "from": ["canyon_drive"],
+        "detail": "Across the open desert ahead, a long caravan of laden bactrian camels lines up in twos toward the citadel — broad woolen flanks tasseled with crimson and indigo blankets, brass bells at their necks, robed riders in earth-toned wraps seated in carved wooden saddles. The camels' long shadows lie across the ochre dunes and prickly pear blooms."
+      },
+      {
+        "name": "Solar eclipse",
+        "kind": "overlay",
+        "from": ["canyon_drive"],
+        "detail": "The sun overhead is reduced to a perfect black disc ringed by a ghostly white corona, casting strange dim slate-blue light across the sandstone mesas, draining the ochre dunes to muted plum and turning the prickly pear blooms and red poppies into dark silhouettes flecked with deep-violet highlights. The citadel ahead stands bone-pale and chilled against a bruise-purple sky, its windows lit with steady warm lamps in the eclipse hush."
+      }
+    ]
+  }
+}

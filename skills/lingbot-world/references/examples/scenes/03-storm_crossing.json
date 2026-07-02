@@ -1,0 +1,148 @@
+{
+  "id": "storm_crossing",
+  "name": "Storm Crossing",
+  "description": "Stern view at sea — overlays + transitions through storm, calm, underwater, flight",
+  "entrance": {
+    "image": {
+      "label": "Storm crossing",
+      "src": "/lingbot-world-fast-v1/storm_crossing.png"
+    },
+    "state": "sea_level_storm"
+  },
+  "scene": {
+    "states": {
+      "sea_level_storm": {
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat — weather-stripped wheelhouse glowing with a single warm yellow cabin lamp, twin whip antennas above, the open wooden deck damp with spray. Slate-grey swells roll under the hull, cool salt mist drifting around the cabin glass. Overhead, dense dark storm clouds fill the entire sky from horizon to horizon, a low heavy charcoal-black ceiling pressing down in oppressive layers and draining the sea of color. Cinematic photorealistic gloomy overcast seascape atmosphere.",
+        "camera": {
+          "static": "Third-person rear chase camera locked tight close behind and slightly above the stern at very close range: the boat fills the centre frame, stern in the lower foreground, bow in the upper distance, the deck visible at a slight downward angle between them. Never to a side, beam-on, forward, or directly overhead, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear chase view.",
+          "dynamic": "Third-person rear chase camera locked tight close behind and slightly above the stern at very close range: the boat fills the centre frame, stern in the lower foreground, bow in the upper distance, the deck visible at a slight downward angle between them. Never to a side, beam-on, forward, or directly overhead, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear chase view."
+        },
+        "movement": {
+          "static": "The boat sits dead in the water, holding position and heading — engines off, no wake or bow ripples. The hull only rises and falls in place as swells pass beneath it, deck pitching and yawing gently. Salt mist drifts past the cabin glass in the wind.",
+          "dynamic": "The engines drive at full power, the bow rising over each swell and crashing down into the next trough, a churning white wake boiling astern, salt mist torn back from the deck as the boat punches forward through the seas."
+        }
+      },
+      "sea_level_calm": {
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat — weather-stripped wheelhouse glowing with a single warm yellow cabin lamp, twin whip antennas above, the open wooden deck still slick with spray. The boat is close-framed in the centre of the shot with the camera tight just behind the trailing edge of the stern, the stern dominating the lower portion of the frame. Now-gentle slate-blue swells roll under the hull with crests settled into lazy glinting ripples. Overhead, broad sweeps of soft pearl and apricot cloud span the sky, sunlight pouring down in long honey-colored shafts. Cinematic photorealistic seascape atmosphere after the storm.",
+        "camera": {
+          "static": "Third-person rear chase camera locked tight close behind and slightly above the stern at very close range: the boat fills the centre frame, stern in the lower foreground, bow in the upper distance, the deck visible at a slight downward angle between them. Never to a side, beam-on, forward, or directly overhead, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear chase view.",
+          "dynamic": "Third-person rear chase camera locked tight close behind and slightly above the stern at very close range: the boat fills the centre frame, stern in the lower foreground, bow in the upper distance, the deck visible at a slight downward angle between them. Never to a side, beam-on, forward, or directly overhead, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear chase view."
+        },
+        "movement": {
+          "static": "The boat sits dead in the water, holding position and heading — engines off, no wake or bow ripples. The hull only rises and falls in place as swells pass beneath it, deck pitching and yawing gently. Salt mist drifts past the cabin glass in the wind.",
+          "dynamic": "The engines drive at full power, the bow rising over each swell and crashing down into the next trough, a churning white wake boiling astern, salt mist torn back from the deck as the boat punches forward through the seas."
+        }
+      },
+      "underwater_calm": {
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled boat in submarine form, deep beneath the sea — wheelhouse windows sealed behind heavy steel pressure shutters glowing faintly at their edges, twin whip antennas folded flush along the streamlined hull, the open deck covered beneath a watertight casing, a stern thruster at the rear, a periscope rising amidships, and twin bow headlights pointing forward away from the camera into the upper distance of the frame, casting bright cones of white light into the dark water ahead. The boat is close-framed in the centre of the shot with the camera tight just behind the trailing edge of the stern, the stern dominating the lower portion of the frame. Deep cobalt-blue water surrounds the hull on every side. Cinematic photorealistic deep-water atmosphere.",
+        "camera": {
+          "static": "Strict close-up centred rear view, fully underwater, the camera locked tight against the stern at very close range: the boat fills the centre frame, stern facing the camera, bow pointing away, the stern dominating the lower portion of the frame — never to a side, forward, beam-on, or above angle, never receding, never pulling back to a wide view, never zooming out, never breaking rear-view; no waterline, sky, or near-surface light shafts in frame.",
+          "dynamic": "Strict close-up centred rear view, fully underwater, the camera locked tight against the stern at very close range: the boat fills the centre frame, stern facing the camera, bow pointing away, the stern dominating the lower portion of the frame — never to a side, forward, beam-on, or above angle, never receding, never pulling back to a wide view, never zooming out, never breaking rear-view; no waterline, sky, or near-surface light shafts in frame."
+        },
+        "movement": {
+          "static": "The boat hovers neutrally buoyant deep below the surface, the stern thruster idling quietly and releasing a slow column of small silver bubbles that drift upward through the dark water column above the hull. The hull holds steady against the slow drift of deep currents combing past, suspended particles drifting slowly through the bow headlight cones.",
+          "dynamic": "The stern thruster runs at full power, the boat gliding forward through the deep water column with small silver bubbles released from the prop curling upward into the dark water above. The bow headlights sweep forward across the sandy seabed below as the hull passes, suspended particles streaming back through the cones of light, deep currents combing past the streamlined casing."
+        }
+      },
+      "flying_calm": {
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat now in flight form — folding mechanical wings unfolded from the boat's flanks with leading edges glinting cleanly, twin jet engine pods extended beneath the wheelhouse, twin whip antennas above, the warm yellow cabin lamp still glowing from inside the cockpit. Below, slate-blue swells roll across the open sea out to the horizon. Overhead, broad sweeps of soft pearl and apricot cloud span the sky, sunlight pouring down in long honey-colored shafts. Cinematic photorealistic low-aerial seascape under a clear sky.",
+        "camera": {
+          "static": "Strict close-up centred rear view, the camera locked tight against the stern at very close range: the boat fills the centre frame, stern facing the camera, bow pointing away, the stern dominating the lower portion of the frame — never to a side, forward, beam-on, or above angle, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear-view.",
+          "dynamic": "Strict close-up centred rear view, the camera locked tight against the stern at very close range: the boat fills the centre frame, stern facing the camera, bow pointing away, the stern dominating the lower portion of the frame — never to a side, forward, beam-on, or above angle, never receding, never pulling back to a wide or aerial view, never zooming out, never breaking rear-view."
+        },
+        "movement": {
+          "static": "The boat hovers in flight mode holding its position, twin jet engines idling at the stern with a soft electric-blue glow, wings extended steadily into the air.",
+          "dynamic": "The twin jet engines drive at full thrust, twin parallel streams of brilliant electric-blue plasma flame roaring straight back from the stern as the boat cruises forward, leaving long shimmering ionized contrails streaking through the air behind it."
+        }
+      }
+    },
+    "events": [
+      {
+        "name": "Lightning storm",
+        "kind": "overlay",
+        "from": ["sea_level_storm"],
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat — weather-stripped wheelhouse glowing with a single warm yellow cabin lamp, twin whip antennas above, the open wooden deck running with rain and spray. Brilliant white-blue forks of lightning crack repeatedly across the dark sky and stab into the sea on every side, igniting the horizon and throwing jagged stuttering shadows across towering foam-walled swells, the strobing flashes silvering the foam crests and pulsing along the wet deck and antennas while answering thunder rumbles through the air. Cold rain drives in slanting sheets and the wind tears at the cabin. Cinematic photorealistic storm-night seascape.",
+        "detail": "Wet hull and deck surfaces flare into stark silver-blue silhouette with each strike, the warm cabin lamp's glow dimming briefly against the lightning's harsh light."
+      },
+      {
+        "name": "Storm break",
+        "kind": "transition",
+        "from": ["sea_level_storm"],
+        "to": "sea_level_calm",
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat — weather-stripped wheelhouse glowing with a single warm yellow cabin lamp, twin whip antennas above, the open wooden deck still slick with spray, slate-blue swells rolling under the hull. The dense charcoal storm ceiling overhead is thinning and breaking apart: ragged dark cloud-banks pull away at their edges to reveal patches of bright sky behind, the patches widening into broad sweeps as the cover shreds and recedes. Honey-colored sun-shafts spear down through the new openings in long angled beams, sweeping across the rolling sea, and the cold rain slackens from driving sheets to a fading drizzle. Cinematic photorealistic seascape atmosphere mid-clearing.",
+        "detail": "Salt mist drifting astern lights up rose and gold in the strengthening sun-shafts, the wet deck and hull glisten with the last receding rain, and sea birds wheel in the warming air ahead."
+      },
+      {
+        "name": "Submerge",
+        "kind": "transition",
+        "from": ["sea_level_calm"],
+        "to": "underwater_calm",
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled boat mid-transformation from surface form to submarine form, crossing the waterline. Sea water washes up over the hull as the boundary between air and deep water passes over the boat. Cinematic photorealistic transformation atmosphere.",
+        "camera": {
+          "static": "Strict close-up centred rear view, the camera locked tight against the stern at very close range through the entire shot: the boat fills the centre frame, stern dominating the lower portion, never receding, never to a side, beam-on, or above angle, never zooming out, never breaking rear-view. Before the dive the boat is above the surface, framed in this same close-rear view. During the dive the camera dives with the stern in one continuous unbroken motion through the waterline, staying at the same fixed close distance the whole way down — the waterline streaks across the frame in a single flash and is gone, no horizontal divide, no half-water half-air frame, no pull-back, no top-down or overhead view of the descending boat. After the dive the camera stays locked tight against the stern at very close range, just behind the trailing edge of the hull. The stern fills the bottom third of the frame and the boat extends from the stern up through the upper centre, close-framed and never small or distant. No pull-back, no zoom-out, no wide or aerial shot. Deep cobalt-blue water around it, no surface, sky, or waterline visible.",
+          "dynamic": "Strict close-up centred rear view, the camera locked tight against the stern at very close range through the entire shot: the boat fills the centre frame, stern dominating the lower portion, never receding, never to a side, beam-on, or above angle, never zooming out, never breaking rear-view. Before the dive the boat is above the surface, framed in this same close-rear view. During the dive the camera dives with the stern in one continuous unbroken motion through the waterline, staying at the same fixed close distance the whole way down — the waterline streaks across the frame in a single flash and is gone, no horizontal divide, no half-water half-air frame, no pull-back, no top-down or overhead view of the descending boat. After the dive the camera stays locked tight against the stern at very close range, just behind the trailing edge of the hull. The stern fills the bottom third of the frame and the boat extends from the stern up through the upper centre, close-framed and never small or distant. No pull-back, no zoom-out, no wide or aerial shot. Deep cobalt-blue water around it, no surface, sky, or waterline visible."
+        },
+        "movement": {
+          "static": "The boat drives forward, snaps violently downward and stabs into the water, the entire hull plunging in one rapid motion until fully submerged. As the hull clears the surface the transformation runs: shutters slide shut across the wheelhouse, antennas fold flush, deck smooths beneath a watertight casing, stern thruster deploys at the rear, bow headlights snap on pointing forward into the dark water ahead, periscope rises amidships.",
+          "dynamic": "The boat drives forward, snaps violently downward and stabs into the water, the entire hull plunging in one rapid motion until fully submerged. As the hull clears the surface the transformation runs: shutters slide shut across the wheelhouse, antennas fold flush, deck smooths beneath a watertight casing, stern thruster deploys at the rear, bow headlights snap on pointing forward into the dark water ahead, periscope rises amidships."
+        }
+      },
+      {
+        "name": "Reef glide",
+        "kind": "overlay",
+        "from": ["underwater_calm"],
+        "detail": "The boat glides forward over a deep-water reef. Towering brain corals and branching staghorn formations rise from the sandy seabed in muted purples, reds, and oranges. An ancient encrusted iron anchor leans against a coral head in the middle distance, heavily colonized by smaller corals."
+      },
+      {
+        "name": "Take off",
+        "kind": "transition",
+        "from": ["sea_level_calm"],
+        "to": "flying_calm",
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat mid-transformation from surface form to flight form, sitting on the open sea as folding mechanical wings emerge from concealed bays along its flanks and twin jet engine pods slide out from beneath the wheelhouse. Now-gentle slate-blue swells roll under the hull, broad sweeps of soft pearl and apricot cloud span the sky overhead, sunlight pouring down in long honey-colored shafts. Cinematic photorealistic transformation atmosphere.",
+        "movement": {
+          "static": "The boat sits motionless on the open sea for a beat, then a deep mechanical hum rises from beneath the hull as concealed bay-doors along the boat's flanks crack open and the folding mechanical wings begin to emerge: composite panels rotate outward from the gunwales in a slow articulated motion, jointed segments hinging one after another into position with crisp metallic clicks, leading edges sliding forward and locking firmly into their final swept positions until both wings are fully extended into long airfoils glinting cleanly in the sun. Twin jet engine pods slide out from recessed slots beneath the wheelhouse and lock down into place. The jets then ignite with a deep building roar, twin parallel streams of brilliant electric-blue plasma flame blasting straight back astern, and the boat accelerates hard across the wave-crests like a seaplane on its take-off run, the hull lifting clear of the surface in a long ribbon of white spray and leveling off into low flight close above the open sea.",
+          "dynamic": "The boat sits motionless on the open sea for a beat, then a deep mechanical hum rises from beneath the hull as concealed bay-doors along the boat's flanks crack open and the folding mechanical wings begin to emerge: composite panels rotate outward from the gunwales in a slow articulated motion, jointed segments hinging one after another into position with crisp metallic clicks, leading edges sliding forward and locking firmly into their final swept positions until both wings are fully extended into long airfoils glinting cleanly in the sun. Twin jet engine pods slide out from recessed slots beneath the wheelhouse and lock down into place. The jets then ignite with a deep building roar, twin parallel streams of brilliant electric-blue plasma flame blasting straight back astern, and the boat accelerates hard across the wave-crests like a seaplane on its take-off run, the hull lifting clear of the surface in a long ribbon of white spray and leveling off into low flight close above the open sea."
+        }
+      },
+      {
+        "name": "Fly high",
+        "kind": "overlay",
+        "from": ["flying_calm"],
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat in flight form at very high altitude — folding mechanical wings extended from its flanks, twin jet engine pods beneath the wheelhouse. The boat sits at very high altitude well above the open sea, the sea reduced to a distant slate-blue expanse far below in the lower portion of the frame, the horizon a thin line at vast distance. Broad sweeps of soft pearl and apricot cloud span the upper sky around the boat, sunlight pouring down in long honey-colored shafts. Thin wisps of high cirrus cloud surround the boat at its altitude. Cinematic photorealistic high-altitude aerial atmosphere."
+      },
+      {
+        "name": "Fireballs",
+        "kind": "overlay",
+        "from": ["flying_calm"],
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat in flight form — folding mechanical wings extended from its flanks, twin jet engine pods beneath the wheelhouse. Slate-blue swells roll below, pearl-and-apricot clouds across the sky overhead. Cinematic photorealistic low-aerial seascape atmosphere.",
+        "detail": "Large swirling orange-red fireballs streak through the sky ahead, flying forward away from the camera toward the distant horizon at very high speed. New fireballs keep entering the frame from just past the boat's left and right flanks — appearing alongside the wings as they shoot forward past the boat — then racing on ahead away from the camera. Each fireball is a discrete glowing projectile with flickering embers around it, getting smaller and smaller as it recedes into the upper distance, finally vanishing at the far horizon line. Many fireballs are visible at once at different distances ahead — some just past the wings, some mid-distance, some already tiny bright dots near the horizon — forming a punctuated scattering of separate projectiles all traveling outward away from the camera. Behind each receding fireball stretches a thin line of glowing orange-red embers marking its forward path through the air, the ember line growing longer the farther the fireball flies. NO flame attached to the boat, NO backward-trailing flame toward the camera, NO flamethrower stream — only free-flying fireballs racing forward past the boat and winking out of sight at the horizon."
+      },
+      {
+        "name": "Surface",
+        "kind": "transition",
+        "from": ["underwater_calm"],
+        "to": "sea_level_calm",
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled boat with a square flat transom at its stern, mid-transformation from submarine form back to surface form, rising fully above the waterline. Cinematic photorealistic transformation atmosphere.",
+        "camera": {
+          "static": "Strict close-up centred rear view, the camera locked tight against the stern at very close range through the entire shot: the boat fills the centre frame, stern dominating the lower portion, never receding, never to a side, beam-on, or above angle, never zooming out, never breaking rear-view. Before the surfacing the boat is fully submerged, framed in this same close-rear view. During the surfacing the camera rises with the stern in one continuous unbroken motion through the waterline, staying at the same fixed close distance the whole way up — the waterline streaks across the frame in a single flash and is gone, no horizontal divide, no half-water half-air frame, no pull-back, no wide or aerial view, no bottom-up or underside view of the rising boat. After the surfacing the camera stays locked tight against the stern at very close range, just behind the trailing edge of the hull. The square flat transom of the stern fills the bottom third of the frame, fully above the waterline, and the boat extends from the stern up through the upper centre, close-framed and never small or distant. No pull-back, no zoom-out, no wide or aerial shot, no half-submerged stern. Open sky and slate-blue swells, no underwater volume visible.",
+          "dynamic": "Strict close-up centred rear view, the camera locked tight against the stern at very close range through the entire shot: the boat fills the centre frame, stern dominating the lower portion, never receding, never to a side, beam-on, or above angle, never zooming out, never breaking rear-view. Before the surfacing the boat is fully submerged, framed in this same close-rear view. During the surfacing the camera rises with the stern in one continuous unbroken motion through the waterline, staying at the same fixed close distance the whole way up — the waterline streaks across the frame in a single flash and is gone, no horizontal divide, no half-water half-air frame, no pull-back, no wide or aerial view, no bottom-up or underside view of the rising boat. After the surfacing the camera stays locked tight against the stern at very close range, just behind the trailing edge of the hull. The square flat transom of the stern fills the bottom third of the frame, fully above the waterline, and the boat extends from the stern up through the upper centre, close-framed and never small or distant. No pull-back, no zoom-out, no wide or aerial shot, no half-submerged stern. Open sky and slate-blue swells, no underwater volume visible."
+        },
+        "movement": {
+          "static": "The boat bursts clear of the water in a spray cascade, the entire hull leaping fully above the surface in one rapid motion with the square flat transom of the stern fully exposed above the waves. The transformation then reverses: shutters retract, antennas pop upright, casing folds back, thruster retracts, headlights fold back, periscope retracts amidships, now in restored surface form on the gentle swells.",
+          "dynamic": "The boat bursts clear of the water in a spray cascade, the entire hull leaping fully above the surface in one rapid motion with the square flat transom of the stern fully exposed above the waves. The transformation then reverses: shutters retract, antennas pop upright, casing folds back, thruster retracts, headlights fold back, periscope retracts amidships, now in restored surface form on the gentle swells."
+        }
+      },
+      {
+        "name": "Land",
+        "kind": "transition",
+        "from": ["flying_calm"],
+        "to": "sea_level_calm",
+        "base": "This is a third-person rear-view driving game video of a battered grey aluminum-hulled work boat mid-transformation from flight form back to surface form, diving down toward the open sea and gliding low across the swells before touching down, after which the jet engines cut and the folding mechanical wings retract back into the hull. Broad sweeps of soft pearl and apricot cloud span the sky above, sunlight pouring down in long honey-colored shafts. Cinematic photorealistic transformation atmosphere.",
+        "movement": {
+          "static": "The boat noses downward into a steep dive toward the open sea below, twin jet engines roaring at full thrust, electric-blue plasma streams blasting back from the stern. As it descends close to the water it levels off and glides forward just above the surface, skimming the gentle slate-blue swells at low altitude with the hull nearly touching the crests. The hull then touches down on the water in a long ribbon of white spray and settles forward across the swells. Once down on the surface the jet engines cut and the plasma streams gutter out, the folding mechanical wings retract back into concealed bays along the boat's flanks, and the twin jet engine pods slide back into recessed slots beneath the wheelhouse, the boat now restored to its original surface form on the gentle swells.",
+          "dynamic": "The boat noses downward into a steep dive toward the open sea below, twin jet engines roaring at full thrust, electric-blue plasma streams blasting back from the stern. As it descends close to the water it levels off and glides forward just above the surface, skimming the gentle slate-blue swells at low altitude with the hull nearly touching the crests. The hull then touches down on the water in a long ribbon of white spray and settles forward across the swells. Once down on the surface the jet engines cut and the plasma streams gutter out, the folding mechanical wings retract back into concealed bays along the boat's flanks, and the twin jet engine pods slide back into recessed slots beneath the wheelhouse, the boat now restored to its original surface form on the gentle swells."
+        }
+      }
+    ]
+  }
+}

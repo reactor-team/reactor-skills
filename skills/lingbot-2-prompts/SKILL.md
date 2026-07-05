@@ -70,6 +70,11 @@ the held object, with the hands described at rest.
 When the idea names no player verb at all, default: a mobile subject →
 playable character; a stationary subject → orbit; a place → fixed first-person.
 
+These regimes set the *default* look-input behaviour. A camera move the user
+asks for by name (orbit sweep, push-in, crane up, pull back to a wide shot) is
+layered on top of the chosen regime — see **Requested camera moves** at the end
+of §2.
+
 ## 2. Write the base prompt
 
 Target 60–110 words, one paragraph, present tense. Build it from these parts
@@ -123,6 +128,45 @@ Populate the scene while you're at it: mention one or two concrete secondary
 objects (a discarded filter, a distant fire escape, a moss-covered castle).
 The action addenda will need nearby and distant targets, and targets work far
 better when the base already placed them or the scene plausibly contains them.
+
+### Requested camera moves
+
+The regimes above describe the *default* camera behaviour. When the idea also
+asks for a **specific directed camera move** — "orbit around it", "push in",
+"crane up and look down", "pull back to a wide shot", "arc around", "whip-pan",
+"dolly toward" — one rule governs every one of them:
+
+**The camera performs the move; the subject stays perfectly still and the
+environment stays consistent.** Name the *camera* as the thing that moves, and
+say the subject holds its pose, position, and identity while the scene around it
+stays fixed. Omit this and the model drags the subject along with the camera — a
+"crane up" becomes the subject sinking, an "orbit" spins the subject instead of
+the view. It is the freeze clause again, now stated against a moving camera
+rather than against held look-input.
+
+Phrasing (present tense, same subject noun the base uses):
+
+> The camera [orbits around / pushes straight in toward / cranes up above /
+> pulls back from] the [subject], which stays perfectly still, holding its pose
+> and position while the [environment] stays fixed around it[, framing detail].
+
+Keep the framing detail honest to the move:
+
+- **Framing-preserving (orbit, arc):** add "at the exact centre of the frame at
+  constant size and distance."
+- **Framing-changing (push-in, crane, pull-back / reveal):** state how the
+  subject's size or position in the frame changes ("growing larger in the
+  frame", "sinking lower as the viewpoint climbs", "growing smaller as the
+  viewpoint retreats") — never "constant size and distance", which would
+  contradict the move.
+
+Place it by scope. If the move is the *standing* behaviour the user wants
+throughout, fold it into the base's motion contract in place of the look-input
+clause. If it is a *triggered* or one-time move, write it as an addendum under
+the §3 discipline — one bounded beat that settles, subject and environment
+preserved, so releasing the key returns cleanly to the base. Either way, one
+sentence naming the camera's move and the subject staying still is enough; don't
+restate the whole camera contract.
 
 ## 3. Write the five slot actions
 

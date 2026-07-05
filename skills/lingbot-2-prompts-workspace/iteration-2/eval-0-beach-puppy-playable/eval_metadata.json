@@ -1,0 +1,14 @@
+{
+  "eval_id": 0,
+  "eval_name": "beach-puppy-playable",
+  "prompt": "make me a lingbot 2 prompt for a golden retriever puppy that you can drive around a sunny beach",
+  "assertions": [
+    "actions.json exists, is valid JSON, and its 'actions' array covers every slot f, g, u, o, space",
+    "every action's prompt_en equals the base prompt + ' ' + addendum_en, joined verbatim (no paraphrase)",
+    "the space action is exactly 'The character jumps high into the air.' with label 'Jump'",
+    "the base prompt contains an explicit motion contract tying all motion to key input (WASD / arrow-key clause with 'only while held' or 'in response to keyboard')",
+    "the u addendum is a melee strike on a NEARBY object with visible material destruction; the o addendum is a projectile with a trajectory, a DISTANT named target, and impact aftermath",
+    "no addendum restates the camera lock or input contract (except the f subject-preservation clause), and each addendum is 1-3 sentences",
+    "the base prompt uses the playable-character regime: third-person gameplay video, camera follows from behind and slightly above, and a game-style anchor (e.g. Unreal Engine 5 style)"
+  ]
+}

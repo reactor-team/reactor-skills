@@ -1,0 +1,14 @@
+HOLD W (forward):
+The golden retriever puppy bounds forward across the sand in a happy gallop, ears flapping, tongue out, paws throwing up small puffs of dry sand. The chase camera glides forward with it at constant distance, staying one meter behind and slightly above. New beach scrolls in from the horizon: more pale sand, the turquoise surf staying on the right, dunes staying on the left. Sunlight and shadow direction stay fixed.
+
+HOLD S (backward / stop-and-turn):
+The puppy slows, plants its front paws, and trots backward a few steps toward the camera, then settles into an alert stance. The camera eases back with it, keeping the framing identical. Sand kicks lightly off its rear paws. Ocean stays on the right, dunes on the left, lighting unchanged.
+
+HOLD A (turn/strafe left):
+The puppy leans and curves to the left in a playful arc toward the grassy dunes, tail out for balance, paws digging into the sand on the turn. The camera swings smoothly with it, staying locked behind the puppy so the dunes rotate into the center of frame and the ocean slides toward the right edge. Same midday sun, same crisp shadows.
+
+HOLD D (turn/strafe right):
+The puppy leans and curves to the right in a playful arc toward the waterline, splashing through the thin sheet of wet reflective sand at the surf's edge, tiny droplets and foam flicking off its paws. The camera swings smoothly with it, staying locked behind the puppy so the sparkling turquoise water rotates into the center of frame. Same midday sun, same crisp shadows.
+
+IDLE (no input):
+The puppy stands still on the sand, panting happily, tail wagging, occasionally cocking its head or sniffing the ground. Waves keep rolling in on the right, seagulls drift overhead, gentle heat shimmer near the horizon. Camera holds steady one meter behind and slightly above.

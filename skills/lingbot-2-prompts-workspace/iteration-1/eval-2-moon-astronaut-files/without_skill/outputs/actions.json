@@ -1,0 +1,75 @@
+{
+  "name": "moon-astronaut",
+  "model": "lingbot-world-fast-v1",
+  "viewpoint": "third-person",
+  "basePromptFile": "prompt.txt",
+  "idle": {
+    "prompt": "The astronaut stands still on the lunar regolith, swaying very slightly in the stiff EVA suit, boots planted in the dust, gold visor catching the harsh sunlight, camera holding steady behind them, black star-filled sky unchanged."
+  },
+  "actions": [
+    {
+      "id": "move_forward",
+      "keys": ["w", "ArrowUp"],
+      "mode": "hold",
+      "isMoving": true,
+      "prompt": "The astronaut bounds forward across the lunar plain in slow low-gravity hops, each leap long and floaty with exaggerated hang time, landing softly and pushing off again, moon dust kicked up in clean ballistic arcs behind the boots, camera smoothly tracking from behind."
+    },
+    {
+      "id": "move_backward",
+      "keys": ["s", "ArrowDown"],
+      "mode": "hold",
+      "isMoving": true,
+      "prompt": "The astronaut takes slow, careful bouncing steps backward toward the camera, small cautious low-gravity hops, arms slightly out for balance in the stiff suit, dust drifting up gently from each step, camera easing back to keep framing."
+    },
+    {
+      "id": "move_left",
+      "keys": ["a", "ArrowLeft"],
+      "mode": "hold",
+      "isMoving": true,
+      "prompt": "The astronaut turns and bounds to the left in buoyant low-gravity hops, body leaning gently into the turn, long slow arcs of motion, dust trailing from the boots, camera swinging smoothly to stay behind the character."
+    },
+    {
+      "id": "move_right",
+      "keys": ["d", "ArrowRight"],
+      "mode": "hold",
+      "isMoving": true,
+      "prompt": "The astronaut turns and bounds to the right in buoyant low-gravity hops, body leaning gently into the turn, long slow arcs of motion, dust trailing from the boots, camera swinging smoothly to stay behind the character."
+    },
+    {
+      "id": "jump",
+      "keys": ["Space"],
+      "mode": "press",
+      "isMoving": true,
+      "prompt": "The astronaut crouches slightly and pushes off into a huge slow-motion vertical leap, rising several meters in one-sixth gravity, hanging weightlessly at the top of the arc against the black starry sky, then drifting back down and landing in a soft puff of slow-falling moon dust."
+    },
+    {
+      "id": "sprint_bound",
+      "keys": ["Shift"],
+      "mode": "hold",
+      "isMoving": true,
+      "prompt": "The astronaut breaks into fast lunar loping, long powerful low-gravity bounds covering meters at a time, almost flying between footfalls, suit bouncing with each landing, twin trails of dust arcing behind, camera keeping pace smoothly."
+    },
+    {
+      "id": "look_around",
+      "keys": ["q"],
+      "mode": "press",
+      "isMoving": false,
+      "prompt": "The astronaut stops and slowly turns in place, gold visor sweeping across the horizon, taking in the cratered gray plain, the distant lander, and the blue Earth hanging above the horizon, camera holding a steady behind-the-shoulder view."
+    },
+    {
+      "id": "wave_at_earth",
+      "keys": ["e"],
+      "mode": "press",
+      "isMoving": false,
+      "prompt": "The astronaut plants both boots, looks up toward the blue Earth in the black sky, and raises one stiff-suited arm in a slow deliberate wave, dust settling around the boots, the scene otherwise calm and still."
+    },
+    {
+      "id": "pick_up_rock",
+      "keys": ["f"],
+      "mode": "press",
+      "isMoving": false,
+      "prompt": "The astronaut bends slowly at the knees in the stiff EVA suit, scoops a small gray moon rock from the regolith with a gloved hand, straightens back up in one buoyant motion, and holds the rock up to the visor to inspect it, fine dust drifting off the glove."
+    }
+  ],
+  "physicsNotes": "All motion obeys one-sixth Earth gravity: slow floaty arcs, long hang time, soft landings, dust that flies ballistically and never billows. Maintain continuous third-person tracking camera, consistent harsh sunlight from the left, black star-filled sky, and no cuts."
+}

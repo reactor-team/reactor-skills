@@ -1,0 +1,64 @@
+{
+  "actions": [
+    {
+      "id": "f#0",
+      "slot": "f",
+      "cand_index": 0,
+      "label_en": "Gull Lands Nearby",
+      "addendum_en": "The old lighthouse keeper remains the main subject, unchanged in pose and position, while a grey herring gull swoops down out of the dusk sky and lands on the wooden fence post beside him, folding its wings and settling next to the rusted hand lantern.",
+      "prompt_en": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The old lighthouse keeper remains the main subject, unchanged in pose and position, while a grey herring gull swoops down out of the dusk sky and lands on the wooden fence post beside him, folding its wings and settling next to the rusted hand lantern.",
+      "label_zh": "Gull Lands Nearby",
+      "addendum_zh": "The old lighthouse keeper remains the main subject, unchanged in pose and position, while a grey herring gull swoops down out of the dusk sky and lands on the wooden fence post beside him, folding its wings and settling next to the rusted hand lantern.",
+      "prompt_zh": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The old lighthouse keeper remains the main subject, unchanged in pose and position, while a grey herring gull swoops down out of the dusk sky and lands on the wooden fence post beside him, folding its wings and settling next to the rusted hand lantern.",
+      "selected": false
+    },
+    {
+      "id": "g#0",
+      "slot": "g",
+      "cand_index": 0,
+      "label_en": "Sea Fog Rolls In",
+      "addendum_en": "A thick sea fog rolls in off the water, wrapping the cliff edge, the wooden fence post, and the base of the lighthouse tower in drifting grey mist, muting the amber dusk to a soft silver gloom while the lantern-room glow blooms into a hazy halo.",
+      "prompt_en": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. A thick sea fog rolls in off the water, wrapping the cliff edge, the wooden fence post, and the base of the lighthouse tower in drifting grey mist, muting the amber dusk to a soft silver gloom while the lantern-room glow blooms into a hazy halo.",
+      "label_zh": "Sea Fog Rolls In",
+      "addendum_zh": "A thick sea fog rolls in off the water, wrapping the cliff edge, the wooden fence post, and the base of the lighthouse tower in drifting grey mist, muting the amber dusk to a soft silver gloom while the lantern-room glow blooms into a hazy halo.",
+      "prompt_zh": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. A thick sea fog rolls in off the water, wrapping the cliff edge, the wooden fence post, and the base of the lighthouse tower in drifting grey mist, muting the amber dusk to a soft silver gloom while the lantern-room glow blooms into a hazy halo.",
+      "selected": false
+    },
+    {
+      "id": "u#0",
+      "slot": "u",
+      "cand_index": 0,
+      "label_en": "Lantern Smash",
+      "addendum_en": "The keeper snatches the rusted hand lantern off the fence post and slams it down against a flat rock at his feet, the glass panes shattering and scattering glinting shards across the grass before the bent metal frame comes to rest at the cliff edge.",
+      "prompt_en": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The keeper snatches the rusted hand lantern off the fence post and slams it down against a flat rock at his feet, the glass panes shattering and scattering glinting shards across the grass before the bent metal frame comes to rest at the cliff edge.",
+      "label_zh": "Lantern Smash",
+      "addendum_zh": "The keeper snatches the rusted hand lantern off the fence post and slams it down against a flat rock at his feet, the glass panes shattering and scattering glinting shards across the grass before the bent metal frame comes to rest at the cliff edge.",
+      "prompt_zh": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The keeper snatches the rusted hand lantern off the fence post and slams it down against a flat rock at his feet, the glass panes shattering and scattering glinting shards across the grass before the bent metal frame comes to rest at the cliff edge.",
+      "selected": false
+    },
+    {
+      "id": "o#0",
+      "slot": "o",
+      "cand_index": 0,
+      "label_en": "Fires Flare Gun",
+      "addendum_en": "The keeper draws a brass flare gun from inside his oilskin coat and fires it out over the water, the red flare arcing high through the dusk with a thin trail of smoke before striking the distant bell buoy in a burst of crimson sparks that scatter across the waves and fade.",
+      "prompt_en": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The keeper draws a brass flare gun from inside his oilskin coat and fires it out over the water, the red flare arcing high through the dusk with a thin trail of smoke before striking the distant bell buoy in a burst of crimson sparks that scatter across the waves and fade.",
+      "label_zh": "Fires Flare Gun",
+      "addendum_zh": "The keeper draws a brass flare gun from inside his oilskin coat and fires it out over the water, the red flare arcing high through the dusk with a thin trail of smoke before striking the distant bell buoy in a burst of crimson sparks that scatter across the waves and fade.",
+      "prompt_zh": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The keeper draws a brass flare gun from inside his oilskin coat and fires it out over the water, the red flare arcing high through the dusk with a thin trail of smoke before striking the distant bell buoy in a burst of crimson sparks that scatter across the waves and fade.",
+      "selected": false
+    },
+    {
+      "id": "space#0",
+      "slot": "space",
+      "cand_index": 0,
+      "label_en": "Jump",
+      "addendum_en": "The character jumps high into the air.",
+      "prompt_en": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The character jumps high into the air.",
+      "label_zh": "Jump",
+      "addendum_zh": "The character jumps high into the air.",
+      "prompt_zh": "This is a third-person-view video of an old, white-bearded lighthouse keeper in a weathered oilskin coat standing at the edge of a sea cliff at dusk, the lighthouse tower behind him and a rusted hand lantern on the wooden fence post beside him. Amber-and-violet coastal dusk atmosphere, a distant bell buoy on the dark sea. The keeper is locked at the exact centre of the frame at constant size and distance. Neither the keeper nor the camera moves on its own; arrow-key look-input is the only source of camera motion, orbiting the camera around the stationary keeper only while held. The keeper stands perfectly still, the sea spray and the gulls overhead held frozen in the air. The character jumps high into the air.",
+      "selected": false
+    }
+  ]
+}

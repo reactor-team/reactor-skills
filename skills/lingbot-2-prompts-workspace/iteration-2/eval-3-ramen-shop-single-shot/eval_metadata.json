@@ -1,0 +1,12 @@
+{
+  "eval_id": 3,
+  "eval_name": "ramen-shop-single-shot",
+  "prompt": "i just need a single lingbot 2 prompt, no action keys or events -- a cozy ramen shop interior at night",
+  "assertions": [
+    "exactly one prompt is delivered and NO actions.json or slot-action package is produced",
+    "the prompt uses the fixed first-person regime appropriate for a place: viewpoint fixed in a single standpoint, arrow-key look-input as the only camera motion, 'only while held'",
+    "the prompt contains a freeze clause naming two or three specific scene elements held still (not a generic 'everything is static')",
+    "the prompt is one paragraph, present tense, roughly 60-110 words, and populates the scene with concrete secondary objects",
+    "the response does not pad the deliverable with unrequested extras (no action slots offered as files, no JSON)"
+  ]
+}

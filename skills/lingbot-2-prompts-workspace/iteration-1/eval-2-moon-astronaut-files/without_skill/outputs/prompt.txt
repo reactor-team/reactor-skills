@@ -1,9 +1,0 @@
-Third-person playable character: a lone astronaut in a white NASA-style EVA suit with a gold-mirrored visor, backpack life-support unit, and dusty boots, standing on the surface of the Moon. The camera floats about three meters behind and slightly above the astronaut, over-the-shoulder game-camera framing, smoothly tracking the character at all times.
-
-The scene: a vast gray lunar plain of fine powdery regolith, scattered with small craters, half-buried boulders, and long crisp shadows. The horizon curves subtly against a pure black star-filled sky. The Earth hangs low above the horizon, blue and half-lit. Harsh direct sunlight from the left creates high-contrast lighting: brilliant white highlights on the suit, deep black shadows on the ground. No atmosphere, no haze, no wind. A small lunar lander with a foil-wrapped descent stage sits about fifty meters away, and a planted flag stands nearby, perfectly still.
-
-Physics and movement style: authentic low lunar gravity, one-sixth of Earth's. Every motion is slow, floaty, and buoyant. The astronaut moves in long, gentle, slow-motion bounding hops rather than normal walking; each hop has exaggerated hang time, a soft drifting arc, and a slow cushioned landing. Kicked-up moon dust flies in clean ballistic arcs and falls back slowly without billowing, since there is no air. The suit is slightly stiff, so movements are deliberate and bouncy.
-
-Idle behavior when no input is given: the astronaut stands in place on the regolith, swaying very slightly, boots settled in the dust, sunlight glinting off the gold visor, the camera holding steady behind them. The scene stays calm and stable: same terrain, same lighting, same black sky, ready to respond to player movement at any moment.
-
-Visual style: photorealistic, crisp cinematic detail, documentary-real NASA footage look, stable exposure, no cuts, no camera shake beyond gentle game-camera smoothing.

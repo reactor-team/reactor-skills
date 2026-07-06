@@ -45,6 +45,9 @@ Two consequences drive every rule below:
 2. Write the **base prompt** (§2).
 3. Write the **five slot actions** (§3) — package deliverable only.
 4. Assemble the **output** (§4).
+5. Generate the **seed image** (§5) — Reactor-internal only, on by default.
+   LingBot-World V2 needs a prompt and an image together to start a session;
+   don't skip this unless the user says they already have their own image.
 
 For a one-line ask, do all of this without interrogating the user; only ask
 when the idea is genuinely ambiguous between regimes (e.g. "a dragon" could be
@@ -278,6 +281,49 @@ Then close with one short line inviting targeted edits ("want a different `o`
 projectile or a second `u` candidate?"). On feedback, edit only the named
 fields and rebuild the affected `prompt_en` strings.
 
+## 5. Generate a seed image (Reactor-internal)
+
+LingBot-World V2 starts a session from a **prompt and an image together**;
+the prompt alone can't be handed to the model. Generate the matching seed
+image as a standard part of every deliverable (single-shot or package),
+right after the base prompt is finalized. One seed image per deliverable —
+it seeds the base prompt only, since the slot addenda modify an
+already-running session rather than starting a new one.
+
+**Derive the image prompt from the base prompt**, don't write it from
+scratch. Take the finished base prompt and:
+
+- Drop every input/motion-contract clause: "in response to keyboard arrow
+  keys", "the camera follows", "arrow-key look-input is the only source of
+  camera motion", freeze clauses, anything conditioned on a key being held.
+  A still image has no input to react to.
+- Keep every concrete visual noun, the framing/positioning language, the
+  atmosphere phrase, and any render-style tags (Unreal Engine 5 style,
+  realistic lighting, cinematic) — these carry over unchanged and are what
+  keep the image and the base prompt visually consistent.
+- Recast the opening as a still frame: "A third-person-view still frame
+  of…" / "A first-person-view still photo of…" rather than "a video of…".
+- Keep it one paragraph, same subject noun phrase as the base prompt.
+
+Then call the generation tool:
+
+```
+python3 <skill-dir>/tools/generate_seed_image.py "<derived image prompt>" seed.png
+```
+
+Pass `--aspect-ratio` (default `16:9`) to match the intended frame; use
+`9:16` for a portrait/mobile session. The script fetches the Replicate API
+token from the shared Reactor 1Password vault ("Replicate API Token" item)
+via the `op` CLI and calls Replicate's `google/imagen-4`, so it only works
+from a machine signed into that vault (`op account list` to check) — it's
+not part of the portable skill definition if this ever moves to a
+public/external repo.
+
+If the script fails (no `op` session, vault access, network), don't block
+on it: still deliver `prompt.txt`/the single-shot prompt and `actions.json`,
+tell the user the seed image generation failed and why, and give them the
+derived image prompt so they can generate it another way.
+
 ## Worked example
 
 Idea: *"a rubber duck in a bathtub"*.
@@ -301,8 +347,17 @@ into a nearby soap bar, cracking off a chip that plops into the water);
 `o` *Spits Water Jet* (a thin jet arcs across the tub and knocks a shampoo
 bottle off the far rim); `space` Jump, fixed string.
 
+Seed image prompt (derived per §5, motion/input clauses dropped): "A
+third-person-view still frame of a bright yellow rubber duck floating at
+the centre of a white porcelain bathtub filled with still, soap-clouded
+water. Cozy bathroom atmosphere, warm light from a frosted window. The duck
+is centred in frame at medium distance, soap bubbles along the rim and
+drips on the chrome faucet."
+
 ## References
 
 - `references/examples.md` — four complete production sessions (one per
   regime plus the hands-in-frame hybrid), verbatim from the model team's
   export data. Read it when unsure how a regime or slot should sound.
+- `tools/generate_seed_image.py` — Reactor-internal script that turns a
+  derived image prompt into a downloaded seed image via Replicate. See §5.

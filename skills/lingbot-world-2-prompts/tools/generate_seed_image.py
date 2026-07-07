@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a LingBot-World V2 seed image via Replicate's google/imagen-4.
+"""Generate a LingBot-World 2 seed image via Replicate's google/imagen-4.
 
 Reactor-internal only: fetches the Replicate API token from the shared
 "Replicate API Token" item in the team's 1Password "Shared" vault. Requires

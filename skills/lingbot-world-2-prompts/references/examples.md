@@ -1,4 +1,4 @@
-# Production examples (verbatim from LingBot-World V2 export data)
+# Production examples (verbatim from LingBot-World 2 export data)
 
 Five complete sessions from the model team's inference exports. Base prompts
 and addenda are untouched. Sessions 2–5 are from the July 2026 export batch

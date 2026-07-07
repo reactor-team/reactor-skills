@@ -1,21 +1,24 @@
 ---
-name: lingbot-2-prompts
+name: lingbot-world-2-prompts
 description: >
   Turn a loose scene idea (even a single short sentence, English or Chinese)
-  into high-quality LingBot-World V2 prompts: either a single-shot standalone
+  into high-quality LingBot-World 2 prompts: either a single-shot standalone
   prompt, or a full session package (one advanced base prompt plus action-key
   prompts — the f and g slots, a variable set of numbered event keys 1..N,
   and the space jump — emitted as prompt.txt content and a ready-to-use
-  actions.json). Use whenever the user mentions LingBot 2, LingBot-World V2,
-  lingbot-worldV2, action slots, actions.json, event keys, key-triggered
+  actions.json). Use whenever the user mentions LingBot 2, LingBot-World 2,
+  lingbot-world-2, reactor/lingbot-world-2, @reactor-models/lingbot-world-2,
+  action slots, actions.json, event keys, key-triggered
   events, a "playable character" video prompt, or gives a rough idea they
   want expanded into an interactive world-model prompt ("make a lingbot 2
-  prompt for a knight in the desert"). This is for the V2 session format;
-  the separate lingbot-world skill covers the V1 JSON state-machine format.
+  prompt for a knight in the desert"). This is for the lingbot-world-2
+  session format; the separate lingbot-world skill covers the V1 JSON
+  state-machine format.
 ---
 
-You are authoring inputs for **LingBot-World V2**, an interactive video world
-model. A V2 session works like this: the model continuously generates video
+You are authoring inputs for **LingBot-World 2** (model name
+`reactor/lingbot-world-2`), an interactive video world
+model. A session works like this: the model continuously generates video
 conditioned on a text prompt. The **base prompt** is the standing condition,
 it describes the world at rest and how input drives it. While the user holds
 an **action key**, the condition is swapped for `base + " " + addendum`, one
@@ -46,7 +49,7 @@ Two consequences drive every rule below:
 3. Write the **action keys** (§3) — package deliverable only.
 4. Assemble the **output** (§4).
 5. Generate the **seed image** (§5) — Reactor-internal only, on by default.
-   LingBot-World V2 needs a prompt and an image together to start a session;
+   LingBot-World 2 needs a prompt and an image together to start a session;
    don't skip this unless the user says they already have their own image.
 
 For a one-line ask, do all of this without interrogating the user; only ask
@@ -324,7 +327,7 @@ fields and rebuild the affected `prompt_en` strings.
 
 ## 5. Generate a seed image (Reactor-internal)
 
-LingBot-World V2 starts a session from a **prompt and an image together**;
+LingBot-World 2 starts a session from a **prompt and an image together**;
 the prompt alone can't be handed to the model. Generate the matching seed
 image as a standard part of every deliverable (single-shot or package),
 right after the base prompt is finalized. One seed image per deliverable —

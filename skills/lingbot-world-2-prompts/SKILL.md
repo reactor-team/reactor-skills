@@ -90,11 +90,18 @@ of §2.
 
 ## 2. Write the base prompt
 
-Target 60–110 words, one paragraph, present tense. Build it from these parts
-in order. The motion-contract phrasings below are near-verbatim from
-production sessions; keep their structure and substitute the bracketed parts,
-they are the load-bearing sentences that make the world controllable instead
-of a drifting video.
+Target 60–110 words, one paragraph, present tense. The budget is not just
+taste: overlong prompts are silently truncated from the tail, and since
+every composed action prompt is the base plus an appended addendum, a
+bloated base risks the model never seeing the action at all. Build the
+paragraph from these parts in order. The motion-contract phrasings below are
+near-verbatim from production sessions; keep their structure and substitute
+the bracketed parts, they are the load-bearing sentences that make the world
+controllable instead of a drifting video. Keep the opening caption sentence
+("A third-person gameplay video where…", "This is a third-person-view video
+of…") exact, not restyled: the model treats a paraphrase of its caption
+register as a different instruction, and paraphrased openings lose camera
+stability that the stock wording holds.
 
 **Playable character:**
 
@@ -140,10 +147,36 @@ locked at the exact centre… the stationary officer"); that form still works,
 but the newest lab sessions use "remains … stable …" plus the "With no event
 key pressed" idle clause — use those unless matching an existing session.
 
+**Describe what is present, never what is absent.** The model renders the
+nouns you give it: "a street with no traffic" places traffic, and negation
+also hides in words that don't look negative (*empty*, *nothing*, *no one*,
+*never*, *unchanged*, *still* in the sense of not-moving), each either dead
+weight or an inverted instruction. Use positive substitutes: "the street
+ahead stays quiet", "stance steady, weight settled". The one earned
+exception is the contract language itself: the motion contract ("Neither
+the [subject] nor the camera moves on its own") and the `f`
+subject-preservation clause are production-validated and stay as written;
+everywhere else, say what the frame contains. Intent qualifiers
+("correctly", "make sure that") are likewise invisible to a renderer; if a
+distinction matters, it must exist as concrete visual description.
+
 Populate the scene while you're at it: mention one or two concrete secondary
 objects (a discarded filter, a distant fire escape, a moss-covered castle).
-The action addenda will need nearby and distant targets, and targets work far
-better when the base already placed them or the scene plausibly contains them.
+The action addenda will need nearby and distant targets, and this is a rule
+rather than a preference: an addendum that asserts an interaction with an
+entity the scene never established does not fail, it conjures the referent
+into frame to satisfy the sentence. Every target an addendum names must be
+placed by the base, be plausible in the scene, or be deliberately introduced
+by the addendum itself (the `f` shape, with its preservation clause).
+
+The same goes for props. If a key will have the subject use an object (a
+flashlight, a lance, a snowboard trick), establish the object in the base
+and the seed image in a use-ready pose, and keep the base's description
+compatible with the use. A prop the base pins in one state ("a lantern
+hangs from the saddle") fights an addendum that uses it in another ("raises
+the lantern"), and because the base stays present under every addendum, the
+model splits the difference and fuses duplicates. "Held low and ready"
+composes; "slung across its back" does not.
 
 ### Requested camera moves
 
@@ -190,8 +223,15 @@ The layout is `f`, `g`, a run of **numbered event keys** `1..N`, then
 `space`. Choose N to fit the idea — production sessions run from zero
 numbered keys (just `f` and `g`) up to seven; 2–5 is typical. Default to
 around 3 for a casual ask, more when the idea implies a sequence or arsenal.
-Every addendum is present tense and repeats the subject by the same noun
-phrase the base uses. `f`/`g` labels are 2–4 words in Title Case; numbered
+Every addendum is present tense and refers to the subject by definite
+reference: the base's same head noun with "the" and no appearance detail
+("the snowboarder", then pronouns), never the base's full introduction. The
+base casts the subject once; an addendum that re-describes it ("a hooded
+figure in a tattered cloak") is a casting call, and the model obliges by
+spawning a second one. For the same reason an addendum never opens with its
+own caption-formula sentence ("This is a … video of …"): the composed prompt
+would then hold two captions, and two captions cast two protagonists.
+`f`/`g` labels are 2–4 words in Title Case; numbered
 keys are labelled `Key 1`, `Key 2`, … (or, for very short addenda, the
 addendum text itself, as production data does).
 
@@ -225,7 +265,11 @@ production data:
   projectile, a melee strike on a nearby object, a light effect. Follows the
   full addendum discipline below. For attack beats keep the classic shape:
   wind-up → trajectory → named target → material aftermath (sparks, debris,
-  scorch marks); fit the weapon to the world's tone.
+  scorch marks); fit the weapon to the world's tone. In any beat involving
+  two figures, name both: the actor holds an explicit, stated pose and the
+  named patient takes the consequence. A consequence hung on a bare pronoun
+  ("it staggers and drops") attaches to whichever figure dominates the
+  frame, usually the subject itself.
 - **Subject transformation** — the sandboard becomes a flying carpet and the
   rider soars above the dunes. State the new stable behaviour it settles into.
 - **Scene teleport** — a fog/light/water transition swallows the frame and
@@ -263,6 +307,13 @@ jump key.
   exports sometimes re-open `f`/`g` addenda with the full centre-lock
   sentence too; that's tolerated by the model but adds nothing — don't
   imitate it.
+- Keep every claim frameable under the base's camera lock. The contract
+  forbids camera motion, so an event has to be stageable without it: an
+  oversized entrance happens at a distance the framing can contain (down
+  the street, on the horizon), never "towering above" the subject, and
+  beats stay at the subject's scale, never hand-level close-up detail that
+  invites a zoom the base forbids. Given an impossible framing, the model
+  breaks the camera rather than refuse the sentence.
 - For **single-beat** keys, end on a settled note ("before coming to rest
   beside the pack") so the world can revert to the base on release, and keep
   the beat completable in a few seconds. Live-session testing shows the
@@ -270,7 +321,9 @@ jump key.
   accumulates (subject identity morphs, colors smear) and releasing the key
   cannot restore a world that has already drifted. The same applies to
   camera input, which is why the base prompt's "only while held" contract
-  matters: brief inputs, settled world between them.
+  matters: brief inputs, settled world between them. That conditioning also
+  means a broken frame outlives the prompt that caused it, so when testing
+  a prompt fix, restart the session from a clean frame before judging it.
 - **Transformation, teleport, and chain keys** intentionally move the world
   forward and do not revert — that is their design. Still end each one in a
   new *stable* state (the carpet glides steadily, the new vista stands
@@ -347,6 +400,11 @@ scratch. Take the finished base prompt and:
   atmosphere phrase, and any render-style tags (Unreal Engine 5 style,
   realistic lighting, cinematic) — these carry over unchanged and are what
   keep the image and the base prompt visually consistent.
+- Make sure every prop the action keys will use is visible in the image,
+  in the same use-ready pose the base describes (§2's prop rule). When
+  text and pixels disagree, the pixels win: a key that references an
+  object the seed never showed makes the model improvise one, and the
+  improvisation surfaces as artifacts rather than as an error.
 - Recast the opening as a still frame: "A third-person-view still frame
   of…" / "A first-person-view still photo of…" rather than "a video of…".
 - Keep it one paragraph, same subject noun phrase as the base prompt.

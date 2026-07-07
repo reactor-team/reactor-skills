@@ -3,15 +3,15 @@ name: lingbot-2-prompts
 description: >
   Turn a loose scene idea (even a single short sentence, English or Chinese)
   into high-quality LingBot-World V2 prompts: either a single-shot standalone
-  prompt, or a full session package (one advanced base prompt plus the five
-  keyboard-slot action prompts f / g / u / o / space, emitted as prompt.txt
-  content and a ready-to-use actions.json). Use whenever the user mentions
-  LingBot 2, LingBot-World V2, lingbot-worldV2, action slots, actions.json,
-  key-triggered events, a "playable character" video prompt, or gives a rough
-  idea they want expanded into an interactive world-model prompt ("make a
-  lingbot 2 prompt for a knight in the desert"). This is for the V2 session
-  format; the separate lingbot-world skill covers the V1 JSON state-machine
-  format.
+  prompt, or a full session package (one advanced base prompt plus action-key
+  prompts — the f and g slots, a variable set of numbered event keys 1..N,
+  and the space jump — emitted as prompt.txt content and a ready-to-use
+  actions.json). Use whenever the user mentions LingBot 2, LingBot-World V2,
+  lingbot-worldV2, action slots, actions.json, event keys, key-triggered
+  events, a "playable character" video prompt, or gives a rough idea they
+  want expanded into an interactive world-model prompt ("make a lingbot 2
+  prompt for a knight in the desert"). This is for the V2 session format;
+  the separate lingbot-world skill covers the V1 JSON state-machine format.
 ---
 
 You are authoring inputs for **LingBot-World V2**, an interactive video world
@@ -43,7 +43,7 @@ Two consequences drive every rule below:
    on top of it, not the reason for it.
 1. Pick the **camera regime** from the idea (§1).
 2. Write the **base prompt** (§2).
-3. Write the **five slot actions** (§3) — package deliverable only.
+3. Write the **action keys** (§3) — package deliverable only.
 4. Assemble the **output** (§4).
 5. Generate the **seed image** (§5) — Reactor-internal only, on by default.
    LingBot-World V2 needs a prompt and an image together to start a session;
@@ -51,9 +51,12 @@ Two consequences drive every rule below:
 
 For a one-line ask, do all of this without interrogating the user; only ask
 when the idea is genuinely ambiguous between regimes (e.g. "a dragon" could be
-playable or orbited). If the idea is in Chinese, keep the base prompt in the
-user's Chinese and write addenda in English, that mix appears in production
-data and works.
+playable or orbited). Language: write everything in **English** — base
+prompt, addenda, labels. The Chinese scattered through the lab's exports is
+the operators' hand-typed working language, not a model requirement; the
+model handles both and the same sessions mix them freely. Only write Chinese
+when the user's own idea is in Chinese (keep their base prompt in their
+words) or when they explicitly ask for it.
 
 ## 1. Pick the camera regime
 
@@ -63,15 +66,19 @@ implies the player *does*:
 | Regime | The player... | Signals in the idea |
 |---|---|---|
 | **Playable character** | drives a subject around with WASD, camera follows behind | "playable", "controls", "drives", "game", a vehicle/creature/object that travels |
-| **Orbit (third-person locked subject)** | orbits the camera around a stationary centred subject with arrow keys | a character/creature/object to *look at*; portraits, statues, standing figures |
-| **Fixed first-person** | pans the view from a single standpoint with arrow keys | "POV", "from the cockpit", "looking out over", vistas, dioramas, hands-in-frame setups |
+| **Orbit (third-person centred subject)** | orbits the camera around a stable centred subject with arrow keys | a character/creature/object to *look at*; portraits, statues, standing figures |
+| **First-person anchor** | orbits the view around a stable in-frame anchor with arrow keys | "POV", "from the cockpit", "looking out over", vistas, dioramas, hands-in-frame setups |
 
-A useful hybrid of orbit + first-person exists for **hands-in-frame** ideas
-(rider's hands on reins, gloved hands holding a tool): treat it as orbit around
-the held object, with the hands described at rest.
+First-person prompts anchor on a **named foreground element** — the driver's
+wheel and dashboard, gloved hands on a tool, a flashlight beam, even a
+landmark filling the vista — and reuse the orbit contract around that anchor.
+(Older exports instead wrote "the viewpoint is fixed in place… panning the
+first-person view across the stationary scene"; that variant still works, but
+the newest lab sessions all use the anchor form. Prefer the anchor form.)
 
 When the idea names no player verb at all, default: a mobile subject →
-playable character; a stationary subject → orbit; a place → fixed first-person.
+playable character; a stationary subject → orbit; a place → first-person
+anchor, picking a plausible foreground element to anchor on.
 
 These regimes set the *default* look-input behaviour. A camera move the user
 asks for by name (orbit sweep, push-in, crane up, pull back to a wide shot) is
@@ -100,32 +107,35 @@ of a drifting video.
 **Orbit:**
 
 > This is a third-person-view video of [subject with concrete visual detail]
-> [posed] in [environment]. [Atmosphere phrase.] The [subject] is locked at
+> [posed] in [environment]. [Atmosphere phrase.] The [subject] remains at
 > the exact centre of the frame at constant size and distance. Neither the
 > [subject] nor the camera moves on its own; arrow-key look-input is the only
-> source of camera motion, orbiting the camera around the stationary [subject]
-> only while held. [Freeze clause: the subject stands perfectly still, plus
-> one or two ambient details explicitly held frozen, e.g. "the rain and steam
-> held frozen in the air."]
+> source of camera motion, orbiting around the stable [subject] only while
+> held. With no event key pressed, [idle clause: the subject holds a specific,
+> interaction-ready rest pose, plus one or two ambient details explicitly
+> still, e.g. "the snowboarder stands balanced on the board, arms relaxed at
+> their sides, ready to carve."]
 
-**Fixed first-person:**
+**First-person anchor:**
 
-> This is a first-person-view video of [scene from the standpoint, name a
-> foreground element that frames the view]. [Atmosphere phrase.] The viewpoint
-> is fixed in place, framing the scene from a single standpoint. Nothing in
-> the scene nor the camera moves on its own; arrow-key look-input is the only
-> source of camera motion, panning the first-person view across the stationary
-> [scene noun] only while held. [Freeze clause naming specific elements held
-> still, e.g. "the tiny cars and trees frozen in place."]
+> This is a first-person-view video of [scene from the standpoint, naming the
+> foreground anchor: hands on a tool, wheel and dashboard, a flashlight beam,
+> a landmark]. [Atmosphere phrase.] The [anchor] remains at the exact centre
+> of the frame at constant size and distance. Neither the [anchor] nor the
+> camera moves on its own; arrow-key look-input is the only source of camera
+> motion, orbiting around the stable [anchor] only while held. With no event
+> key pressed, [idle clause, e.g. "the driver's gloved hands stay relaxed on
+> the wheel, ready to steer or shift gears."]
 
-For the hands-in-frame hybrid, use the orbit skeleton and end with an idle
-clause instead of a freeze clause: "With no event key pressed, the [hands]
-rest relaxed [on the tool/reins], ready to [act]."
-
-Why the freeze clause matters: it is the negative space of the motion
-contract. Without it the model animates rain, fish, traffic on its own and
-the arrow keys stop feeling causal. Name two or three *specific* things that
-stay still rather than saying "everything is static".
+Why the idle clause matters: it is the negative space of the motion contract
+and the rest state every event key returns to. Without it the model animates
+rain, fish, traffic on its own and the keys stop feeling causal. Name two or
+three *specific* things that stay still rather than saying "everything is
+static". An older generation of exports ended with a freeze clause instead
+("the rain and steam held frozen in the air") and hard-locked wording ("is
+locked at the exact centre… the stationary officer"); that form still works,
+but the newest lab sessions use "remains … stable …" plus the "With no event
+key pressed" idle clause — use those unless matching an existing session.
 
 Populate the scene while you're at it: mention one or two concrete secondary
 objects (a discarded filter, a distant fire escape, a moss-covered castle).
@@ -144,7 +154,7 @@ environment stays consistent.** Name the *camera* as the thing that moves, and
 say the subject holds its pose, position, and identity while the scene around it
 stays fixed. Omit this and the model drags the subject along with the camera — a
 "crane up" becomes the subject sinking, an "orbit" spins the subject instead of
-the view. It is the freeze clause again, now stated against a moving camera
+the view. It is the idle clause again, now stated against a moving camera
 rather than against held look-input.
 
 Phrasing (present tense, same subject noun the base uses):
@@ -171,76 +181,104 @@ preserved, so releasing the key returns cleanly to the base. Either way, one
 sentence naming the camera's move and the subject staying still is enough; don't
 restate the whole camera contract.
 
-## 3. Write the five slot actions
+## 3. Write the action keys
 
-One action per slot, fixed semantics. Every addendum is 1–3 sentences
-(roughly 25–60 words), present tense, and repeats the subject by the same noun
-phrase the base uses. Labels are 2–4 words in Title Case.
+The layout is `f`, `g`, a run of **numbered event keys** `1..N`, then
+`space`. Choose N to fit the idea — production sessions run from zero
+numbered keys (just `f` and `g`) up to seven; 2–5 is typical. Default to
+around 3 for a casual ask, more when the idea implies a sequence or arsenal.
+Every addendum is present tense and repeats the subject by the same noun
+phrase the base uses. `f`/`g` labels are 2–4 words in Title Case; numbered
+keys are labelled `Key 1`, `Key 2`, … (or, for very short addenda, the
+addendum text itself, as production data does).
 
 **`f` — contextual scene event.** Something happens *around* the subject: a
 secondary creature appears, or the subject performs a small in-character
-interaction with a nearby object. When a new entity enters, open with the
-subject-preservation clause so the model doesn't re-imagine the frame:
-"The original focal subject remains the main subject, unchanged in pose and
-position, while [a small tan puppy emerges from the dunes to the right…]".
-Examples: *Puppy Emerges*, *Birds Flutter Past*, *Driver Engages Gearbox*,
-*Ant Tips Water Droplet*.
+interaction with a nearby object. 1–3 sentences (roughly 25–60 words). When
+a new entity enters, open with the subject-preservation clause so the model
+doesn't re-imagine the frame: "The original focal subject remains the main
+subject, unchanged in pose and position, while [a small tan puppy emerges
+from the dunes to the right…]". Examples: *Fluttering Moths*, *Dolphin
+Leap*, *Wandering Fox*, *Friendly Camel Approach*.
 
 **`g` — environment transformation.** A global weather / lighting / season
 change sweeping the whole scene while the subject stays untouched: snowfall
-blanketing the dunes, sunset shifting the palette, a district flooding.
+blanketing the dunes, sunset shifting the palette, a district flooding — up
+to a full scene-identity swap (a dim bar dissolving into a grand library).
 Describe what the transformation does to two or three named surfaces of the
 scene ("covering the wet cobblestones, brick walls, and streetlamps in thick
-white drifts"). Examples: *Desert Snowfall*, *Sunset Glow*, *Snow-Covered
-Alley*.
+white drifts"). Examples: *Shifting Dunes*, *Sunset Glow*, *Snowy Blizzard*,
+*Bar Transforms to Library*.
 
-**`u` — melee strike.** The subject physically strikes a **nearby** concrete
-object, with visible destruction. Shape: wind-up → impact → material
-consequence (shatters, splinters, cracks, sprays). The target must be
-something the scene plausibly contains at arm's reach. Examples: *Shield
-Bash*, *Extinguisher Bash*, *Mandible Snap*.
+`f` and `g` can also be a **paired toggle** when the subject has an obvious
+binary state: flashlight on (`f`) / flashlight off (`g`), headlights on /
+wipers sweeping. Toggle addenda can be a single short sentence.
 
-**`o` — ranged attack.** A projectile event with a full visible arc. Shape:
-source (hand, weapon, mouth, vehicle) → projectile with a described trajectory
-("streaks across the sand", "leaving a trail of bubbles") → strikes a
-**distant** named target → impact aftermath (explosion, sparks, dust plume).
-Fit the projectile to the world's tone: a knight casts lightning, an F1
-cockpit underwater shoots a torpedo, a jet-ski rider fires a flare gun, an
-ant fires spittle. Examples: *Casts Fireball*, *Fires Flare Gun*, *Shoots
-Torpedo*.
+**Numbered keys `1..N` — freeform event keys.** Each is one discrete event,
+and this is where the session's personality lives. Recurring shapes in the
+production data:
+
+- **Single beat** — a boost with light trails, a prop appearing, a spat
+  projectile, a melee strike on a nearby object, a light effect. Follows the
+  full addendum discipline below. For attack beats keep the classic shape:
+  wind-up → trajectory → named target → material aftermath (sparks, debris,
+  scorch marks); fit the weapon to the world's tone.
+- **Subject transformation** — the sandboard becomes a flying carpet and the
+  rider soars above the dunes. State the new stable behaviour it settles into.
+- **Scene teleport** — a fog/light/water transition swallows the frame and
+  the world arrives somewhere new ("Thin mist covers the frame; as it clears,
+  the view arrives before the Pyramids of Egypt…"). Name the transition
+  device, then establish the new scene's key elements.
+- **Chained sequence** — keys designed to be pressed in order, each link
+  opening by resolving the previous one ("the zombie is swallowed by
+  darkness and fades… the ward door swings open and a vampire stands
+  inside…") and closing with the new state established. Use when the idea is
+  a journey, an escalation, or a boss gauntlet; write the whole chain as one
+  storyboard so the hand-offs are explicit.
+
+**`u` / `o` — legacy combat slots.** Earlier exports used fixed `u` (melee
+strike on a nearby object) and `o` (ranged attack on a distant target)
+slots; the newest sessions fold those beats into numbered keys instead.
+Only emit `u`/`o` slots when the user asks for that layout or wants a pool
+of attack candidates on one key (combat-heavy sessions still ship `o` with
+many `cand_index` variants).
 
 **`space` — jump.** Always exactly:
-`The character jumps high into the air.` with label `Jump`. This is a fixed
-runtime convention; do not customize it.
-
-Even for non-violent or absurd subjects, still fill `u` and `o`, the
-production data does (a cigarette pack slams a cigarette butt and fires a
-glowing ember). Invent an in-world-plausible strike and projectile rather
-than skipping the slot; keep it physical, not gory.
+`The current controllable subject springs upward into the air.` with label
+`Jump`. This is a runtime convention; do not customize it. (The older string
+"The character jumps high into the air." appears in earlier exports.)
+Include `space` by default; drop it only if the user says they don't want a
+jump key.
 
 **Addendum discipline** (the appended-after-base consequence):
 
-- Never restate the camera lock or the input contract inside an addendum, the
-  base already says it. (Exception: the `f` subject-preservation clause,
-  which restates *subject* stability only.)
-- Never contradict the base's freeze clause except for the one thing the
+- Never contradict the base's idle clause except for the one thing the
   action animates.
-- End on a settled note ("before coming to rest beside the pack"), the world
-  must be able to revert to the base when the key is released.
-- Write the addendum as one short, completable beat (an event that could fully
-  play out in a few seconds). Live-session testing shows the model conditions
-  on its own recent frames: during a long hold, drift accumulates (subject
-  identity morphs, colors smear) and releasing the key cannot restore a world
-  that has already drifted. An addendum that implies open-ended ongoing action
-  invites exactly those long holds; a bounded beat gives a clean press-release
-  cycle. The same applies to camera input, which is why the base prompt's
-  "only while held" contract matters: brief inputs, settled world between them.
+- You don't need to restate the camera lock or the input contract inside an
+  addendum — the base already says it. The one required restatement is the
+  `f` subject-preservation clause (subject stability only). Newer lab
+  exports sometimes re-open `f`/`g` addenda with the full centre-lock
+  sentence too; that's tolerated by the model but adds nothing — don't
+  imitate it.
+- For **single-beat** keys, end on a settled note ("before coming to rest
+  beside the pack") so the world can revert to the base on release, and keep
+  the beat completable in a few seconds. Live-session testing shows the
+  model conditions on its own recent frames: during a long hold, drift
+  accumulates (subject identity morphs, colors smear) and releasing the key
+  cannot restore a world that has already drifted. The same applies to
+  camera input, which is why the base prompt's "only while held" contract
+  matters: brief inputs, settled world between them.
+- **Transformation, teleport, and chain keys** intentionally move the world
+  forward and do not revert — that is their design. Still end each one in a
+  new *stable* state (the carpet glides steadily, the new vista stands
+  still), never in open-ended accelerating motion, so the next input starts
+  from a settled frame.
 
 ## 4. Assemble the output
 
 **Single-shot deliverable:** emit the prompt alone (as `prompt.txt` when the
-user gives a directory, otherwise inline) and stop — no actions.json, no slot
-actions. Close by offering to extend it into a full package if they later
+user gives a directory, otherwise inline) and stop — no actions.json, no
+action keys. Close by offering to extend it into a full package if they later
 want key-triggered events.
 
 **Package deliverable:** emit two blocks, in this order. If the user gives a
@@ -271,14 +309,17 @@ format, so it can be dropped straight into tooling):
 }
 ```
 
-Rules: one entry per slot in order `f, g, u, o, space`; `id` is
+Rules: one entry per key in order `f, g, 1, 2, …, N, space` (legacy `u`/`o`
+entries, when requested, go between `g` and the numbered keys); `id` is
 `<slot>#<cand_index>` with `cand_index` 0 unless the user asks for multiple
 candidates for a slot; `prompt_en` is the base prompt, a single space, then
 the addendum, verbatim, build it mechanically, never paraphrase; `_zh` fields
-duplicate `_en` unless the user supplies Chinese labels/addenda.
+duplicate `_en` unless the user supplies Chinese labels/addenda (for a
+Chinese addendum, put it in both `_en` and `_zh` fields, as production
+exports do).
 
-Then close with one short line inviting targeted edits ("want a different `o`
-projectile or a second `u` candidate?"). On feedback, edit only the named
+Then close with one short line inviting targeted edits ("want a different
+Key 2 event or a second `f` candidate?"). On feedback, edit only the named
 fields and rebuild the affected `prompt_en` strings.
 
 ## 5. Generate a seed image (Reactor-internal)
@@ -295,8 +336,10 @@ scratch. Take the finished base prompt and:
 
 - Drop every input/motion-contract clause: "in response to keyboard arrow
   keys", "the camera follows", "arrow-key look-input is the only source of
-  camera motion", freeze clauses, anything conditioned on a key being held.
-  A still image has no input to react to.
+  camera motion", the "With no event key pressed" idle clause, freeze
+  clauses, anything conditioned on a key being held. A still image has no
+  input to react to — but keep the *pose* the idle clause describes, recast
+  as plain description ("standing balanced on the board, arms relaxed").
 - Keep every concrete visual noun, the framing/positioning language, the
   atmosphere phrase, and any render-style tags (Unreal Engine 5 style,
   realistic lighting, cinematic) — these carry over unchanged and are what
@@ -333,19 +376,22 @@ Regime: small stationary subject to look at → **orbit**.
 Base: "This is a third-person-view video of a bright yellow rubber duck
 floating at the centre of a white porcelain bathtub filled with still,
 soap-clouded water. Cozy bathroom atmosphere, warm light from a frosted
-window. The duck is locked at the exact centre of the frame at constant size
+window. The duck remains at the exact centre of the frame at constant size
 and distance. Neither the duck nor the camera moves on its own; arrow-key
-look-input is the only source of camera motion, orbiting the camera around
-the stationary duck only while held. The duck sits perfectly still on the
-water, the soap bubbles along the rim and the drips on the chrome faucet held
-frozen in place."
+look-input is the only source of camera motion, orbiting around the stable
+duck only while held. With no event key pressed, the duck bobs gently in
+place on the still water, the soap bubbles along the rim and the drips on
+the chrome faucet holding still."
 
 Actions: `f` *Bubble Drifts By* (preservation clause + a single soap bubble
 drifting past and popping on the rim); `g` *Steam Fills Room* (steam fogging
-the mirror and softening the light); `u` *Beak Jab* (the duck jabs its beak
-into a nearby soap bar, cracking off a chip that plops into the water);
-`o` *Spits Water Jet* (a thin jet arcs across the tub and knocks a shampoo
-bottle off the far rim); `space` Jump, fixed string.
+the mirror and softening the light); `1` a single beat — the duck spits a
+thin water jet that arcs across the tub and knocks a shampoo bottle off the
+far rim, ending settled; `2` a transformation — the duck grows to fill the
+tub, the bathroom now toy-sized around it, settling into a steady float;
+`3` a teleport — the bathwater swells into open ocean at sunset, the duck
+bobbing on gentle swells with the bathroom gone; `space` Jump, fixed string
+"The current controllable subject springs upward into the air."
 
 Seed image prompt (derived per §5, motion/input clauses dropped): "A
 third-person-view still frame of a bright yellow rubber duck floating at
@@ -356,8 +402,9 @@ drips on the chrome faucet."
 
 ## References
 
-- `references/examples.md` — four complete production sessions (one per
-  regime plus the hands-in-frame hybrid), verbatim from the model team's
-  export data. Read it when unsure how a regime or slot should sound.
+- `references/examples.md` — five complete production sessions verbatim from
+  the model team's export data, covering all three regimes, toggle keys,
+  transformation and chained numbered keys, and the legacy `u`/`o` slot
+  layout. Read it when unsure how a regime or key should sound.
 - `tools/generate_seed_image.py` — Reactor-internal script that turns a
   derived image prompt into a downloaded seed image via Replicate. See §5.

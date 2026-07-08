@@ -3,79 +3,90 @@
   "evals": [
     {
       "id": 0,
-      "name": "beach-puppy-playable",
-      "prompt": "make me a lingbot 2 prompt for a golden retriever puppy that you can drive around a sunny beach",
-      "expected_output": "A playable-character base prompt (camera behind/above, WASD clause, UE5-style anchor) plus actions.json with f, g, a few numbered event keys, and space, prompt_en = base + addendum",
+      "name": "beach-puppy-layered-scene",
+      "prompt": "make me a lingbot 2 scene for a golden retriever puppy that you can drive around a sunny beach",
+      "expected_output": "A StructuredExample JSON: base (puppy + beach + style, no camera/motion language), camera.default.{static,dynamic} with the production contract wording, movement.default.{static,dynamic}, 2-5 events, scene-appropriate jumpPrompt, stock crouch/stand prompts, plus a derived seed-image prompt",
       "files": [],
       "assertions": [
-        "actions.json exists, is valid JSON, and its 'actions' array contains slots f, g, at least two numbered event keys (slots '1', '2', ...), and space, in that order",
-        "every action's prompt_en equals the base prompt + ' ' + addendum_en, joined verbatim (no paraphrase)",
-        "the space action is exactly 'The current controllable subject springs upward into the air.' with label 'Jump'",
-        "the base prompt contains an explicit motion contract tying all motion to key input (WASD / arrow-key clause with 'only while held' or 'in response to keyboard')",
-        "the f addendum is a contextual scene event opening with a subject-preservation clause when a new entity enters; the g addendum is a global environment/weather/lighting transformation naming specific scene surfaces",
-        "each numbered key is one discrete event; single-beat keys end on a settled note, and any transformation/teleport key ends in a new stable state rather than open-ended motion",
-        "no addendum restates the arrow-key camera/input contract (the f subject-preservation clause is the only allowed restatement)",
-        "the base prompt uses the playable-character regime: third-person gameplay video, camera follows from behind and slightly above, and a game-style anchor (e.g. Unreal Engine 5 style)"
+        "the deliverable is a single valid StructuredExample JSON with id, name, description, image {label, src}, and scene {base, camera, movement, events, jumpPrompt, crouchPrompt, standPrompt}",
+        "every layer registry (base, camera, movement) has a 'default' key; camera and movement defaults each have both 'static' and 'dynamic' strings",
+        "the base contains no POV, camera, motion-verb, or input language (no 'third-person', no 'camera', no 'WASD', no 'walks/runs/rolls forward', no 'stands still')",
+        "camera.default.static ties camera motion to look-input ('only while held' or equivalent) and states neither subject nor camera moves on its own; camera.default.dynamic is a strict rear view where look-input becomes the subject changing heading",
+        "movement.default.static names specific idle micro-motions bound to the puppy (not a generic 'everything is static'); movement.default.dynamic uses concrete travel verbs with ground/environment response",
+        "events refer to the subject by definite reference (no re-description of appearance, no second caption sentence); action beats end in a settled state",
+        "jumpPrompt is scene-appropriate for the puppy and describes a complete arc (launch, airborne, land) — not the legacy 'current controllable subject' string",
+        "the description field enumerates the keys ('key 1 = ..., key 2 = ...')",
+        "a derived seed-image prompt is delivered: still-frame recast, input clauses dropped, idle pose kept, 16:9 / 1664x960 mentioned"
       ]
     },
     {
       "id": 1,
-      "name": "lighthouse-keeper-orbit",
-      "prompt": "lingbot-world v2 session: an old lighthouse keeper standing at the edge of a cliff at dusk",
-      "expected_output": "An orbit-regime base prompt (subject remains at centre, arrow-key orbit around the stable subject only while held, 'With no event key pressed' idle clause) plus f, g, numbered keys, and space in the export JSON shape",
+      "name": "lighthouse-keeper-scene",
+      "prompt": "lingbot-world v2 scene: an old lighthouse keeper standing at the edge of a cliff at dusk",
+      "expected_output": "A StructuredExample JSON with a properly cast keeper in base, the standard camera contract pair, an interaction-ready idle in movement.static, and a few events targeting objects the base established",
       "files": [],
       "assertions": [
-        "actions.json exists, is valid JSON, and its 'actions' array contains slots f, g, at least two numbered event keys, and space, in that order",
-        "every action's prompt_en equals the base prompt + ' ' + addendum_en, joined verbatim (no paraphrase)",
-        "the space action is exactly 'The current controllable subject springs upward into the air.' with label 'Jump'",
-        "the base prompt uses the orbit regime with current phrasing: the subject 'remains at the exact centre of the frame at constant size and distance', arrow-key look-input orbiting around the stable subject 'only while held'",
-        "the base prompt ends with an idle clause ('With no event key pressed, ...') describing a specific interaction-ready rest pose and naming ambient details held still",
-        "the f addendum opens with the subject-preservation clause, and no addendum contradicts the base's idle clause except for the one thing it animates",
-        "no u or o slots are emitted (the user did not ask for the legacy combat layout)"
+        "the deliverable is a single valid StructuredExample JSON with the full scene shape (base/camera/movement registries with defaults, events array, all three vertical prompts)",
+        "the base casts the keeper with concrete visual detail and populates secondary objects that at least one event later targets",
+        "no event targets an entity the base never established unless the event deliberately introduces it (contextual-entrance shape with the subject-preservation clause)",
+        "camera.default.static and .dynamic follow the production contract wording (centre lock, look-input as only camera motion / strict rear view, look-input becomes heading)",
+        "movement.default.static describes a specific interaction-ready idle with named micro-motions; no fragment outside the camera layer restates the input contract",
+        "crouchPrompt and standPrompt use (or minimally adapt) the stock camera-height strings"
       ]
     },
     {
       "id": 2,
-      "name": "moon-astronaut-files",
-      "prompt": "need a lingbot 2 base prompt + actions.json for an astronaut on the moon, playable, low gravity. save the files to the output dir",
-      "expected_output": "prompt.txt and actions.json written as files; playable regime; f, g, numbered keys, space; valid JSON matching the export schema",
+      "name": "moon-astronaut-scene-file",
+      "prompt": "need a lingbot 2 layered scene for an astronaut on the moon, playable, low gravity. save it to the output dir",
+      "expected_output": "A <slug>.json file written to the output dir conforming to StructuredExample, with low-gravity physics expressed in movement.dynamic and jumpPrompt",
       "files": [],
       "assertions": [
-        "actions.json exists, is valid JSON, and its 'actions' array contains slots f, g, at least two numbered event keys, and space, in that order",
-        "every action's prompt_en equals the base prompt + ' ' + addendum_en, joined verbatim (no paraphrase)",
-        "the space action is exactly 'The current controllable subject springs upward into the air.' with label 'Jump'",
-        "the base prompt contains an explicit motion contract tying all motion to key input (WASD / arrow-key clause with 'only while held' or 'in response to keyboard')",
-        "prompt.txt and actions.json are actually written as files in the outputs directory",
-        "the base prompt uses the playable-character regime and works low-gravity physics into the movement description"
+        "a kebab-case-named .json file is actually written to the outputs directory and parses as valid JSON conforming to the StructuredExample shape",
+        "low-gravity physics is expressed in movement.default.dynamic and/or jumpPrompt (slow arcs, long hangs, dust behavior), not in the base as motion language",
+        "the base is POV-agnostic and motion-agnostic (subject + lunar environment + style only)",
+        "the worst-case composition (base + camera.dynamic + movement.dynamic + the two longest events) stays under roughly 2000 characters",
+        "jumpPrompt is a complete symmetric arc appropriate to a low-gravity astronaut"
       ]
     },
     {
       "id": 3,
       "name": "ramen-shop-single-shot",
-      "prompt": "i just need a single lingbot 2 prompt, no action keys or events -- a cozy ramen shop interior at night",
-      "expected_output": "One standalone base prompt (first-person anchor regime for a place), with the motion contract anchored on a named foreground element; NO actions.json and no action keys",
+      "prompt": "i just need a single lingbot 2 prompt, no keys or events -- a cozy ramen shop interior at night",
+      "expected_output": "ONE standalone composed prompt (base + camera.static + movement.static equivalent, first-person anchor form for a place), no JSON and no events",
       "files": [],
       "assertions": [
-        "exactly one prompt is delivered and NO actions.json or action-key package is produced",
-        "the prompt uses the first-person anchor regime appropriate for a place: a named foreground anchor (e.g. the counter, a steaming bowl) that 'remains at the exact centre of the frame', with arrow-key look-input as the only source of camera motion 'only while held'",
-        "the prompt states what stays still with specifics: an idle/freeze clause naming two or three concrete scene elements held still (not a generic 'everything is static')",
-        "the prompt is one paragraph, present tense, roughly 60-110 words, and populates the scene with concrete secondary objects",
-        "the response does not pad the deliverable with unrequested extras (no action keys offered as files, no JSON)"
+        "exactly one standalone prose prompt is delivered and NO scene JSON or event keys are produced",
+        "the prompt reads as the idle composition: world identity, then a centre-locked named foreground anchor with look-input as the only source of camera motion 'only while held', then a specific idle naming two or three concrete elements",
+        "the prompt describes what is present, never what is absent (no 'empty', 'no one', 'nothing'), except contract language",
+        "the response does not pad the deliverable with unrequested extras (no JSON, no key list)"
       ]
     },
     {
       "id": 4,
       "name": "haunted-manor-chain",
-      "prompt": "lingbot 2 package: first-person with a lantern in a haunted manor hallway, and I want number keys that take you through an escalating sequence of ghost encounters",
-      "expected_output": "First-person anchor base prompt (lantern as anchor), f/g slots, and a chained sequence of English numbered keys where each key resolves the previous encounter before introducing the next",
+      "prompt": "lingbot 2 scene: first-person with a lantern in a haunted manor hallway, and I want the number keys to take you through an escalating sequence of ghost encounters",
+      "expected_output": "A StructuredExample JSON using the first-person anchor adaptation of the camera pair, with chained events where each key resolves the previous encounter before introducing the next",
       "files": [],
       "assertions": [
-        "actions.json exists, is valid JSON, and contains f, g, at least three numbered event keys, and space, in that order",
-        "the base prompt anchors on the lantern (or an equivalent named foreground element) with the orbit-around-stable-anchor contract and a 'With no event key pressed' idle clause",
-        "all prompts and addenda are written in English (the user gave no language preference)",
-        "the numbered keys form a designed chain: every key after the first opens by resolving or dismissing the previous key's encounter before introducing the next",
-        "each chained key ends with the new encounter established in a stable state, not open-ended accelerating motion",
-        "every action's prompt_en equals the base prompt + ' ' + addendum_en joined verbatim"
+        "the camera pair is adapted to first-person: static keeps the lantern (or equivalent anchor) centred with look-input orbiting it; dynamic advances the viewpoint with the anchor held steady and look-input as heading change",
+        "the events form a designed chain: every event after the first opens by resolving or dismissing the previous encounter before introducing the next",
+        "each chained event ends with the new encounter established in a stable state, not open-ended accelerating motion",
+        "all prose is in English (the user gave no language preference)",
+        "the deliverable is a single valid StructuredExample JSON with all required fields"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "legacy-actions-json-request",
+      "prompt": "our lab tooling still ingests the old lingbot 2 actions.json export -- give me prompt.txt + actions.json for a knight patrolling a desert ruin, f/g slots plus 2 numbered keys",
+      "expected_output": "The legacy deliverable honored: a monolithic base prompt in prompt.txt and a valid actions.json with f, g, 1, 2, space entries where prompt_en = base + ' ' + addendum verbatim",
+      "files": [],
+      "assertions": [
+        "actions.json exists, is valid JSON, and its 'actions' array contains slots f, g, '1', '2', and space, in that order",
+        "every action's prompt_en equals the base prompt + ' ' + addendum_en joined verbatim (no paraphrase)",
+        "the space action is exactly 'The current controllable subject springs upward into the air.' with label 'Jump'",
+        "the base prompt is the monolithic legacy form with the motion contract baked in (camera/input clauses present in the base itself)",
+        "the f addendum is a contextual scene event (subject-preservation clause if a new entity enters) and the g addendum is an environment transformation naming specific surfaces"
       ]
     }
   ]

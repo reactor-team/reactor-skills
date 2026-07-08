@@ -48,9 +48,9 @@ Two consequences drive every rule below:
 2. Write the **base prompt** (§2).
 3. Write the **action keys** (§3) — package deliverable only.
 4. Assemble the **output** (§4).
-5. Generate the **seed image** (§5) — Reactor-internal only, on by default.
-   LingBot-World 2 needs a prompt and an image together to start a session;
-   don't skip this unless the user says they already have their own image.
+5. Generate the **seed image** (§5). LingBot-World 2 needs a prompt and an
+   image together to start a session, so derive the image prompt and render
+   it with your own text-to-image model, unless the user already has an image.
 
 For a one-line ask, do all of this without interrogating the user; only ask
 when the idea is genuinely ambiguous between regimes (e.g. "a dragon" could be
@@ -378,7 +378,7 @@ Then close with one short line inviting targeted edits ("want a different
 Key 2 event or a second `f` candidate?"). On feedback, edit only the named
 fields and rebuild the affected `prompt_en` strings.
 
-## 5. Generate a seed image (Reactor-internal)
+## 5. Generate a seed image
 
 LingBot-World 2 starts a session from a **prompt and an image together**;
 the prompt alone can't be handed to the model. Generate the matching seed
@@ -409,24 +409,11 @@ scratch. Take the finished base prompt and:
   of…" / "A first-person-view still photo of…" rather than "a video of…".
 - Keep it one paragraph, same subject noun phrase as the base prompt.
 
-Then call the generation tool:
-
-```
-python3 <skill-dir>/tools/generate_seed_image.py "<derived image prompt>" seed.png
-```
-
-Pass `--aspect-ratio` (default `16:9`) to match the intended frame; use
-`9:16` for a portrait/mobile session. The script fetches the Replicate API
-token from the shared Reactor 1Password vault ("Replicate API Token" item)
-via the `op` CLI and calls Replicate's `google/imagen-4`, so it only works
-from a machine signed into that vault (`op account list` to check) — it's
-not part of the portable skill definition if this ever moves to a
-public/external repo.
-
-If the script fails (no `op` session, vault access, network), don't block
-on it: still deliver `prompt.txt`/the single-shot prompt and `actions.json`,
-tell the user the seed image generation failed and why, and give them the
-derived image prompt so they can generate it another way.
+Then generate the image from that prompt with any text-to-image model.
+LingBot-World 2 runs at **1664 × 960**, so target a 16:9 landscape frame.
+Deliver the derived image prompt alongside `prompt.txt` (or the single-shot
+prompt) and `actions.json`, and remind the user that the session needs the
+image and the base prompt together to start.
 
 ## Worked example
 
@@ -467,5 +454,3 @@ drips on the chrome faucet."
   the model team's export data, covering all three regimes, toggle keys,
   transformation and chained numbered keys, and the legacy `u`/`o` slot
   layout. Read it when unsure how a regime or key should sound.
-- `tools/generate_seed_image.py` — Reactor-internal script that turns a
-  derived image prompt into a downloaded seed image via Replicate. See §5.
